@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* 🌍 Global Styles */
+body {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ✨ Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4, #8b5cf6);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* 🔲 Glass Effect (Reusable) */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 🔘 Buttons */
+.btn-primary {
+  @apply px-6 py-2 rounded-lg font-medium transition-all duration-300;
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.btn-outline {
+  @apply px-6 py-2 rounded-lg border border-gray-500 transition-all duration-300;
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* 🧊 Card Style */
+.card {
+  @apply p-6 rounded-xl transition-all duration-300;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* 🌈 Section Spacing */
+.section {
+  @apply py-20 px-4 md:px-10;
+}
+
+/* 🧭 Container */
+.container-custom {
+  @apply max-w-6xl mx-auto;
+}
+
+/* ✨ Scrollbar (Optional but pro look) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 10px;
+}
+
+/* 🌟 Subtle Glow Effect */
+.glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Default (Dark Mode First) */
+:root {
+  --bg: #0f172a;
+  --text: #e2e8f0;
+}
+
+/* Light Mode */
+.light {
+  --bg: #ffffff;
+  --text: #0f172a;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
