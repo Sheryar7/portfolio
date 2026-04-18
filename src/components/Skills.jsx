@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import HighlightText from "./HighlightText";
 
 const Skills = () => {
 
@@ -18,7 +19,7 @@ const Skills = () => {
             <div className="container-custom text-center">
 
                 <h2 className="text-3xl font-bold gradient-text mb-10">
-                    Skills
+                    <HighlightText>Skills</HighlightText>
                 </h2>
 
                 {/* <div className="flex flex-wrap justify-center gap-4">
