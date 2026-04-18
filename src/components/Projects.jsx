@@ -10,6 +10,13 @@ const projects = [
     github: "https://github.com/Sheryar7/skillforge-frontend",
   },
   {
+    title: "Shopping Cart",
+    desc: "A technical deep-dive into Redux Toolkit (RTK) to master global state management. Built to implement complex slice logic, centralized reducers, and predictable data flows in a modular e-commerce environment.",
+    img: "/shoppingCart.png",
+    live: "https://shopping-cart-jet-alpha.vercel.app/",
+    github: "https://github.com/Sheryar7/shopping-cart",
+  },
+  {
     title: "Auth-App",
     desc: "Developed to master Zustand as a lightweight alternative to Redux, focusing on reducing boilerplate in MERN applications. Implements a secure flow with JWT sessions, Bcrypt hashing, and OTP-based email verification.",
     img: "/authapp.png",
