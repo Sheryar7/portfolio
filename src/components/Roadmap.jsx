@@ -43,7 +43,7 @@ const Roadmap = () => {
         <h2 className="text-4xl font-extrabold mb-5 gradient-text">
           <HighlightText>Next on the Horizon</HighlightText>
         </h2>
-        <p className="text-gray-400 mb-16 max-w-2xl mx-auto text-lg">
+        <p className="text-gray-500 mb-16 max-w-2xl mx-auto text-lg">
           Currently expanding my expertise beyond the MERN stack to master the next generation of web technologies.
         </p>
 
@@ -55,9 +55,9 @@ const Roadmap = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8, borderColor: "#3b82f6" }} // Border lights up on hover
-              className="p-8 rounded-3xl border border-gray-800 bg-gray-900/40 backdrop-blur-md flex flex-col items-center relative"
+              className="p-8 rounded-3xl border border-gray-800 bg-gray-800/40 backdrop-blur-md flex flex-col items-center relative"
             >
-              {/* === THE "IN PROGRESS" BADGE === */}
+              {/* THE "IN PROGRESS" BADGE */}
               <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/50 border border-blue-800 text-xs text-blue-300 font-medium">
                 <motion.span
                   variants={dotVariants}
@@ -68,11 +68,11 @@ const Roadmap = () => {
               </div>
 
               {/* Icon Placeholder (You can add actual icons here later) */}
-              <div className="w-16 h-16 rounded-2xl bg-gray-800/80 mb-6 flex items-center justify-center text-gray-600 text-3xl font-mono">
+              <div className="w-16 h-16 rounded-2xl bg-gray-800/80 mb-6 flex items-center justify-center text-gray-500 text-3xl font-mono">
                 {`{ }`}
               </div>
 
-              <h3 className="text-blue-400 font-bold text-2xl mb-3 tracking-tight">
+              <h3 className="text-blue-500 font-bold text-2xl mb-3 tracking-tight">
                 {skill.name}
               </h3>
               
@@ -80,9 +80,9 @@ const Roadmap = () => {
                 {skill.reason}
               </p>
 
-              {/* === THE PROGRESS BAR === */}
+              {/* THE PROGRESS BAR */}
               <div className="w-full mt-auto">
-                <div className="flex justify-between items-center mb-1 text-xs text-gray-600">
+                <div className="flex justify-between items-center mb-1 text-xs text-gray-500">
                   <span>Current Progress</span>
                   <span>{skill.progress}%</span>
                 </div>

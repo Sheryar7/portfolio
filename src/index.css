@@ -77,13 +77,13 @@ body {
 /* Default (Dark Mode First) */
 :root {
   --bg: #0f172a;
-  --text: #e2e8f0;
+  --text: #fcfcfc;
 }
 
 /* Light Mode */
 .light {
   --bg: #ffffff;
-  --text: #0f172a;
+  --text: #000000;
 }
 
 body {

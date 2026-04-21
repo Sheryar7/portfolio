@@ -35,7 +35,7 @@ const contactData = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 bg-black/5">
+    <section id="contact" className="py-24">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,12 +46,12 @@ const Contact = () => {
           <h2 className="text-4xl font-bold gradient-text mb-4">
             <HighlightText>Get In Touch</HighlightText>
           </h2>
-          <p className="text-gray-400 flex items-center justify-center gap-2">
+          <p className="text-gray-700 flex items-center justify-center gap-2">
             <FaMapMarkerAlt className="text-red-500" /> Peshawar, Pakistan
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
           {contactData.map((item, index) => (
             <motion.a
               key={index}
@@ -62,15 +62,15 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className={`glass p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center transition-all duration-300 ${item.color}`}
+              className={`p-6 rounded-2xl border border-gray-800 bg-gray-800/40 flex flex-col items-center text-center transition-all duration-300 ${item.color}`}
             >
-              <div className="text-3xl mb-4 bg-white/5 p-4 rounded-full">
+              <div className="text-3xl mb-4 bg-white/5 p-4 rounded-full ">
                 {item.icon}
               </div>
               <h3 className="text-sm font-bold uppercase tracking-widest text-gray-500 mb-1">
                 {item.label}
               </h3>
-              <p className="text-gray-300 text-sm break-all">
+              <p className="text-gray-700 text-sm break-all">
                 {item.value}
               </p>
             </motion.a>
@@ -78,12 +78,12 @@ const Contact = () => {
         </div>
 
         {/* Professional Footer-like Note */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="mt-20 text-center border-t border-white/5 pt-10"
         >
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-700 text-sm">
             © {new Date().getFullYear()} | Designed & Built by Sheryar Khan
           </p>
         </motion.div>

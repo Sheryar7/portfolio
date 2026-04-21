@@ -4,23 +4,25 @@ const Hero = () => {
   return (
     <section id="about" className="section flex items-center min-h-[90vh]">
       <div className="container-custom grid md:grid-cols-2 gap-10 items-center">
-        
+
         {/* LEFT - The Professional Pitch */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-5xl font-extrabold leading-tight">
-            I build <span className="gradient-text">Scalable Solutions</span> <br />
-            with the MERN Stack.
+          <h1 className="text-3xl font-extrabold leading-tight">
+            <span className="gradient-text">Full-Stack MERN Developer </span>
+             with experience building scalable and high-performance web applications.
           </h1>
 
-          <p className="text-gray-400 mt-6 text-lg leading-relaxed">
-            I am a Full-Stack Developer focused on building high-performance applications. 
-            From architecting a comprehensive **LMS with Redux** to optimizing state management 
-            with **Zustand**, I specialize in creating clean, efficient, and user-centric web systems.
-          </p>
+          {/* <p className="text-gray-700 mt-6 text-lg leading-relaxed">
+            Developed complex systems including a <strong>Learning Management System (LMS)</strong> using <strong>Redux</strong> for state management 
+            and implemented optimized state handling using <strong>Zustand</strong> in modern applications.<br/>
+            Focused on writing clean, maintainable code and designing efficient backend architectures. 
+            Strong interest in building user-centric solutions and 
+            continuously learning modern technologies such as Next.js, TypeScript, Supabase, and PostgreSQL.
+          </p> */}
 
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#projects" className="btn-primary">View My Work</a>
@@ -43,23 +45,23 @@ const Hero = () => {
 
           <p className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-2">Current Focus</p>
           <h3 className="text-2xl font-bold mt-2">Architecture & State</h3>
-          
+
           <div className="space-y-4 mt-6">
             <div className="flex items-start gap-3">
               <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2"></div>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-500 text-sm">
                 <strong>SkillForge LMS:</strong> Robust state handling with Redux.
               </p>
             </div>
             <div className="flex items-start gap-3">
               <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2"></div>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-500 text-sm">
                 <strong>Auth-App:</strong> Lightweight logic with Zustand.
               </p>
             </div>
             <div className="flex items-start gap-3">
               <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2"></div>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-500 text-sm">
                 <strong>Next Phase:</strong> Transitioning to Next.js & TypeScript.
               </p>
             </div>
@@ -68,8 +70,8 @@ const Hero = () => {
           <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center">
             <span className="text-xs text-gray-500">Peshawar, PK</span>
             <div className="flex gap-2">
-               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-               <span className="text-xs text-gray-400">Available for Work</span>
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              <span className="text-xs text-gray-500">Available for Work</span>
             </div>
           </div>
         </motion.div>

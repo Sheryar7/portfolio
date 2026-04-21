@@ -6,12 +6,15 @@ const useTheme = () => {
   );
 
   useEffect(() => {
-    const root = document.documentElement;
+    const root = window.document.documentElement;
 
-    if (theme === "light") {
-      root.classList.add("light");
-    } else {
+    // We use 'dark' as the standard class for Tailwind dark mode
+    if (theme === "dark") {
+      root.classList.add("dark");
       root.classList.remove("light");
+    } else {
+      root.classList.add("light");
+      root.classList.remove("dark");
     }
 
     localStorage.setItem("theme", theme);

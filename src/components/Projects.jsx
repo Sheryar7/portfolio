@@ -29,7 +29,7 @@ const Projects = () => {
   return (
     <section id="projects" className="section">
       <div className="container-custom">
-        <h2 className="text-3xl font-bold gradient-text text-center mb-12">
+        <h2 className="text-4xl font-bold gradient-text text-center mb-12">
           <HighlightText>My Work</HighlightText>
         </h2>
 
@@ -48,7 +48,7 @@ const Projects = () => {
               <h3 className="text-xl font-semibold">{project.title}</h3>
               
               {/* line-clamp-3 adds the '...' after 3 lines of text */}
-              <p className="text-gray-400 mt-2 line-clamp-3 text-sm flex-grow">
+              <p className="text-gray-500 mt-2 line-clamp-3 text-sm flex-grow">
                 {project.desc}
               </p>
 
