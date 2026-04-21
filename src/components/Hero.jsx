@@ -24,7 +24,7 @@ const Hero = () => {
             <a href="#projects" className="btn-primary">View My Work</a>
             <a href="#contact" className="btn-outline">Hire Me</a>
             {/* Ensure your CV is in the 'public' folder for this link to work */}
-            <a href="/Sheryar Khan-CV.pdf" download className="btn-outline">Download CV</a>
+            <a href="/Sheryar Khan CV.pdf" download className="btn-outline">Download CV</a>
           </div>
         </motion.div>
 
