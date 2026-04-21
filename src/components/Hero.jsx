@@ -12,23 +12,19 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-3xl font-extrabold leading-tight">
-            <span className="gradient-text">Full-Stack MERN Developer </span>
-             with experience building scalable and high-performance web applications.
+             Building <span className="gradient-text">Scalable Full-Stack Applications</span> with the <span className="gradient-text">MERN</span> Stack
           </h1>
 
-          {/* <p className="text-gray-700 mt-6 text-lg leading-relaxed">
-            Developed complex systems including a <strong>Learning Management System (LMS)</strong> using <strong>Redux</strong> for state management 
-            and implemented optimized state handling using <strong>Zustand</strong> in modern applications.<br/>
-            Focused on writing clean, maintainable code and designing efficient backend architectures. 
-            Strong interest in building user-centric solutions and 
-            continuously learning modern technologies such as Next.js, TypeScript, Supabase, and PostgreSQL.
-          </p> */}
+          <p className="text-gray-700 mt-6 text-lg leading-relaxed">
+            I design and develop high-performance web applications with a strong focus on clean architecture, 
+            efficient state management, and real-world problem solving.
+          </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#projects" className="btn-primary">View My Work</a>
             <a href="#contact" className="btn-outline">Hire Me</a>
             {/* Ensure your CV is in the 'public' folder for this link to work */}
-            <a href="/Sheryar-Khan-CV.pdf" download className="btn-outline">Download CV</a>
+            <a href="/Sheryar Khan-CV.pdf" download className="btn-outline">Download CV</a>
           </div>
         </motion.div>
 

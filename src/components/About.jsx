@@ -17,16 +17,15 @@ const About = () => {
 
           <div className="max-w-3xl mx-auto px-4">
             <p className="text-gray-500 text-lg leading-relaxed text-center balance">
-              Self-taught <strong>MERN Stack Developer</strong> with hands-on experience building full-stack web applications using <strong>React</strong>, <strong>Node.js</strong>, <strong>Express</strong>, and <strong>MongoDB</strong>. 
-              Strong understanding of authentication systems, REST APIs, and role-based access control.<br/>
+              I’m a self-taught <strong>Full-Stack Developer</strong> specializing in the <strong>MERN</strong> stack. 
+              I’ve built complex applications including a <strong>Learning Management System (LMS) </strong> 
+              with <strong>role-based access control</strong>, <strong>authentication flows</strong>, and <strong>scalable backend architecture</strong>.<br/>
 
-              Built multiple real-world projects including a <strong>Learning Management System (LMS)</strong>, 
-              a <strong>Authentication System</strong>, and a <strong>State Management Implementation</strong> using <strong>Redux</strong> and <strong>Zustand</strong>.<br/>
+              From managing global state with <strong>Redux</strong> to optimizing performance using <strong>Zustand</strong>, 
+              I focus on writing clean, maintainable code and building systems that scale.<br/>
 
-              Currently expanding skills in modern technologies including <strong>Next.js</strong>, <strong>TypeScript</strong>, <strong>Supabase</strong>, and <strong>PostgreSQL</strong>.<br/>
-
-              Seeking a internship or junior developer role where I can contribute, 
-              learn real-world development practices, and grow in a professional environment.
+              Currently, I’m expanding my skillset with modern technologies like 
+              <strong> Next.js</strong>, <strong>TypeScript</strong>, <strong>Supabase</strong>, and <strong>PostgreSQL</strong>.
             </p>
           </div>
         </motion.div>
