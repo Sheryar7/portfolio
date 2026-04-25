@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { FaEnvelope, FaGithub, FaLinkedin, FaWhatsapp, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaWhatsapp,
+  FaMapMarkerAlt
+} from "react-icons/fa";
 import HighlightText from "./HighlightText";
 
 const contactData = [
@@ -8,85 +14,113 @@ const contactData = [
     label: "Email",
     value: "sheryarkhan7712@gmail.com",
     link: "mailto:sheryarkhan7712@gmail.com",
-    color: "hover:text-red-500",
   },
   {
     icon: <FaLinkedin />,
     label: "LinkedIn",
     value: "sheryar-khan-209608280",
     link: "https://www.linkedin.com/in/sheryar-khan-209608280",
-    color: "hover:text-blue-600",
   },
   {
     icon: <FaGithub />,
     label: "GitHub",
     value: "github.com/Sheryar7",
     link: "https://github.com/Sheryar7",
-    color: "hover:text-gray-400",
   },
   {
     icon: <FaWhatsapp />,
     label: "WhatsApp",
     value: "+92 312 0916801",
     link: "https://wa.me/923120916801",
-    color: "hover:text-green-500",
   },
 ];
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="py-28 relative overflow-hidden">
+
+      {/* background glow (Apple style depth) */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[-180px] left-[-180px] w-[500px] h-[500px] bg-blue-500/10 blur-[140px] rounded-full" />
+        <div className="absolute bottom-[-180px] right-[-180px] w-[500px] h-[500px] bg-purple-500/10 blur-[140px] rounded-full" />
+      </div>
+
       <div className="container-custom">
+
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold gradient-text mb-4">
-            <HighlightText>Get In Touch</HighlightText>
+          <h2 className="text-4xl font-semibold mb-4">
+            <span className="gradient-text">
+              <HighlightText>Let’s Build Something</HighlightText>
+            </span>
           </h2>
-          <p className="text-gray-700 flex items-center justify-center gap-2">
-            <FaMapMarkerAlt className="text-red-500" /> Peshawar, Pakistan
+
+          <p className="text-muted max-w-xl mx-auto text-lg">
+            Open for backend, full-stack, and system design opportunities.
+            Let’s connect and build scalable products.
           </p>
+
+          <div className="flex items-center justify-center gap-2 mt-4 text-sm text-muted">
+            <FaMapMarkerAlt className="text-red-400" />
+            Peshawar, Pakistan
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
+        {/* Contact hub */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
           {contactData.map((item, index) => (
             <motion.a
               key={index}
               href={item.link}
               target="_blank"
               rel="noreferrer"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className={`p-6 rounded-2xl border border-gray-800 bg-gray-800/40 flex flex-col items-center text-center transition-all duration-300 ${item.color}`}
+              whileHover={{ y: -6 }}
+              className="group relative p-6 surface-card transition overflow-hidden"
             >
-              <div className="text-3xl mb-4 bg-white/5 p-4 rounded-full ">
+
+              {/* Icon */}
+              <div className="text-2xl mb-4 surface-icon transition group-hover:text-blue-600">
                 {item.icon}
               </div>
-              <h3 className="text-sm font-bold uppercase tracking-widest text-gray-500 mb-1">
+
+              {/* Label */}
+              <h3 className="text-xs tracking-widest uppercase text-muted mb-1">
                 {item.label}
               </h3>
-              <p className="text-gray-700 text-sm break-all">
+
+              {/* Value */}
+              <p className="text-sm surface-copy transition break-all">
                 {item.value}
               </p>
+
             </motion.a>
           ))}
+
         </div>
 
-        {/* Professional Footer-like Note */}
+        {/* Footer */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="mt-20 text-center border-t border-white/5 pt-10"
+          className="mt-24 text-center"
         >
-          <p className="text-gray-700 text-sm">
-            © {new Date().getFullYear()} | Designed & Built by Sheryar Khan
+          <div className="h-px w-full bg-white/10 mb-8" />
+
+          <p className="text-muted text-sm">
+            © {new Date().getFullYear()} Sheryar Khan — Built with React, NestJS & passion for scalable systems
           </p>
+
         </motion.div>
+
       </div>
     </section>
   );

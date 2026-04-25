@@ -50,12 +50,8 @@ const Navbar = () => {
   };
 
   const linkClass = (section) =>
-    `relative cursor-pointer transition duration-300 font-medium ${
-      active === section
-        ? "text-blue-500"
-        : theme === "dark"
-        ? "text-white hover:text-blue-400"
-        : "text-gray-800 hover:text-blue-600"
+    `relative cursor-pointer transition duration-300 font-medium nav-link ${
+      active === section ? "nav-link-active" : ""
     }`;
 
   const Underline = ({ section }) => (
@@ -67,13 +63,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav
-      className={`fixed w-full z-50 shadow-sm transition-all duration-300 ${
-        theme === "dark"
-          ? "bg-[#0b1120]/80 backdrop-blur-md border-b border-white/10"
-          : "bg-white/80 backdrop-blur-md border-b border-gray-300"
-      }`}
-    >
+    <nav className="fixed w-full z-50 shadow-sm transition-all duration-300 nav-surface">
       <div className="container-custom flex justify-between items-center py-4">
         <h1 className="font-bold text-xl cursor-pointer" onClick={() => handleScrollTo("about")}>
           <HighlightText>Sheryar Khan</HighlightText>
@@ -95,28 +85,26 @@ const Navbar = () => {
 
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className={`text-xl ml-4 transition-transform hover:rotate-12 ${theme === "dark" ? "text-yellow-400" : "text-gray-600"}`}
+            className="text-xl ml-4 transition-transform hover:rotate-12 nav-toggle"
           >
             {theme === "dark" ? <FaSun /> : <FaMoon />}
           </button>
         </div>
 
         <div className="md:hidden flex items-center gap-4">
-          <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-            {theme === "dark" ? <FaSun className="text-yellow-400" /> : <FaMoon />}
+          <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="nav-toggle">
+            {theme === "dark" ? <FaSun /> : <FaMoon />}
           </button>
-          <div onClick={() => setOpen(!open)} className={theme === "dark" ? "text-white" : "text-black"}>
+          <div onClick={() => setOpen(!open)} className="nav-toggle cursor-pointer">
             {open ? <FaTimes size={24} /> : <FaBars size={24} />}
           </div>
         </div>
       </div>
 
       {open && (
-        <div className={`md:hidden text-center py-6 space-y-6 flex flex-col items-center ${
-          theme === "dark" ? "bg-[#0b1120] text-white" : "bg-white text-gray-900"
-        }`}>
+        <div className="md:hidden text-center py-6 space-y-6 flex flex-col items-center mobile-menu">
           {["about", "projects", "roadmap", "contact"].map((item) => (
-            <p key={item} onClick={() => handleScrollTo(item)} className={`text-lg capitalize cursor-pointer ${active === item ? "text-blue-500 font-bold" : ""}`}>
+            <p key={item} onClick={() => handleScrollTo(item)} className={`text-lg capitalize cursor-pointer nav-link ${active === item ? "nav-link-active font-bold" : ""}`}>
               {item}
             </p>
           ))}

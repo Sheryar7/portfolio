@@ -24,21 +24,45 @@ body {
 
 /* Buttons */
 .btn-primary {
-  @apply px-6 py-2 rounded-lg font-medium transition-all duration-300;
-  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  @apply px-6 py-2 rounded-full font-medium transition-all duration-300;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
 }
 
 .btn-primary:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.btn-secondary {
+  @apply px-6 py-2 rounded-full font-medium transition-all duration-300;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--surface);
 }
 
 .btn-outline {
-  @apply px-6 py-2 rounded-lg border border-gray-500 transition-all duration-300;
+  @apply px-6 py-2 rounded-full font-medium transition-all duration-300;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
 }
 
 .btn-outline:hover {
-  background: rgba(255,255,255,0.1);
+  background: var(--surface);
+}
+
+.backdrop-overlay {
+  background: rgba(15, 23, 42, 0.66);
+}
+
+.light .backdrop-overlay {
+  background: rgba(15, 23, 42, 0.22);
 }
 
 /* 🧊 Card Style */
@@ -74,21 +98,162 @@ body {
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
-/* Default (Dark Mode First) */
+/* Theme variables */
 :root {
   --bg: #0f172a;
-  --text: #fcfcfc;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --surface: rgba(15, 23, 42, 0.72);
+  --surface-strong: rgba(15, 23, 42, 0.9);
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 30px 60px rgba(15, 23, 42, 0.18);
+  --glass: rgba(15, 23, 42, 0.45);
 }
 
-/* Light Mode */
 .light {
-  --bg: #ffffff;
-  --text: #000000;
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --muted: #64748b;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: rgba(255, 255, 255, 0.98);
+  --border: rgba(15, 23, 42, 0.12);
+  --shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+  --glass: rgba(255, 255, 255, 0.72);
 }
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
-  transition: all 0.3s ease;
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+.surface-card,
+.surface-panel {
+  @apply rounded-2xl border backdrop-blur-xl transition-all duration-300;
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.surface-panel {
+  background: var(--surface-strong);
+}
+
+.surface-heading {
+  color: #f8fafc;
+}
+
+.light .surface-heading {
+  color: #0f172a;
+}
+
+.surface-copy {
+  color: #cbd5e1;
+}
+
+.light .surface-copy {
+  color: #475569;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.theme-highlight {
+  color: #f8fafc;
+}
+
+.light .theme-highlight {
+  color: #0f172a;
+}
+
+.nav-surface {
+  background: rgba(15, 23, 42, 0.76);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.light .nav-surface {
+  background: rgba(248, 250, 252, 0.96);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+.nav-link {
+  color: rgba(248, 250, 252, 0.9);
+}
+
+.light .nav-link {
+  color: rgba(15, 23, 42, 0.78);
+}
+
+.nav-link-active,
+.nav-link:hover {
+  color: #3b82f6;
+}
+
+.nav-toggle {
+  color: var(--text);
+}
+
+.mobile-menu {
+  background: var(--surface-strong);
+  color: var(--text);
+}
+
+.light .mobile-menu {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.dark .mobile-menu {
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.theme-border-button {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.theme-border-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.light .theme-border-button {
+  border-color: rgba(148, 163, 184, 0.24);
+}
+
+.light .theme-border-button:hover {
+  background-color: rgba(15, 23, 42, 0.04);
+}
+
+.surface-icon {
+  color: #cbd5e1;
+  transition: color 0.25s ease;
+}
+
+.light .surface-icon {
+  color: #64748b;
+}
+
+.surface-bar {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.light .surface-bar {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.surface-tag {
+  @apply text-xs px-2 py-1 rounded-md;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.light .surface-tag {
+  background: rgba(15, 23, 42, 0.06);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.72);
 }

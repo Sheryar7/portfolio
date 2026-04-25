@@ -2,103 +2,112 @@ import { motion } from "framer-motion";
 import HighlightText from "./HighlightText";
 
 const futureSkills = [
-  { 
-    name: "Next.js", 
-    reason: "For Server-Side Rendering (SSR) and superior SEO.", 
-    progress: 25 // Out of 100
+  {
+    name: "Next.js",
+    reason: "Server-side rendering, SEO optimization, and production-grade React architecture.",
+    progress: 25,
   },
-  { 
-    name: "TypeScript", 
-    reason: "To write safer, bug-free code with static typing.", 
-    progress: 10
+  {
+    name: "TypeScript",
+    reason: "Building scalable, type-safe applications with fewer runtime bugs.",
+    progress: 40,
   },
-  { 
-    name: "PostgreSQL", 
-    reason: "Mastering Relational Databases (SQL) alongside MongoDB.", 
-    progress: 5
+  {
+    name: "PostgreSQL",
+    reason: "Mastering relational database design alongside NoSQL systems.",
+    progress: 5,
   },
-  { 
-    name: "Supabase", 
-    reason: "Leveraging Backend-as-a-Service for rapid scaling.", 
-    progress: 5
+  {
+    name: "Supabase",
+    reason: "Modern backend-as-a-service for rapid full-stack scaling.",
+    progress: 5,
   },
 ];
 
-// Simple blinking animation for the status dot
-const dotVariants = {
-  blink: {
-    opacity: [1, 0.4, 1],
-    transition: {
-      duration: 1.5,
-      repeat: Infinity,
-      ease: "linear",
-    },
-  },
-};
-
 const Roadmap = () => {
   return (
-    <section id="roadmap" className="py-24">
-      <div className="container-custom text-center">
-        <h2 className="text-4xl font-extrabold mb-5 gradient-text">
-          <HighlightText>Next on the Horizon</HighlightText>
-        </h2>
-        <p className="text-gray-500 mb-16 max-w-2xl mx-auto text-lg">
-          Currently expanding my expertise beyond the MERN stack to master the next generation of web technologies.
-        </p>
+    <section id="roadmap" className="py-28 relative overflow-hidden">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Background glow (Apple style depth) */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[-180px] left-[-180px] w-[500px] h-[500px] bg-blue-500/10 blur-[140px] rounded-full" />
+        <div className="absolute bottom-[-180px] right-[-180px] w-[500px] h-[500px] bg-purple-500/10 blur-[140px] rounded-full" />
+      </div>
+
+      <div className="container-custom text-center">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl font-semibold mb-4">
+            <span className="gradient-text">
+              <HighlightText>Learning Roadmap</HighlightText>
+            </span>
+          </h2>
+
+          <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+            Expanding beyond MERN into modern backend systems, scalable architectures,
+            and production-grade engineering practices.
+          </p>
+        </motion.div>
+
+        {/* Timeline layout */}
+        <div className="mt-20 max-w-4xl mx-auto space-y-6">
+
           {futureSkills.map((skill, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8, borderColor: "#3b82f6" }} // Border lights up on hover
-              className="p-8 rounded-3xl border border-gray-800 bg-gray-800/40 backdrop-blur-md flex flex-col items-center relative"
+              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative flex gap-6 p-6 rounded-2xl surface-card hover:border-white/20 transition"
             >
-              {/* THE "IN PROGRESS" BADGE */}
-              <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/50 border border-blue-800 text-xs text-blue-300 font-medium">
-                <motion.span
-                  variants={dotVariants}
-                  animate="blink"
-                  className="w-2 h-2 rounded-full bg-blue-400"
-                ></motion.span>
-                Learning
+
+              {/* Left indicator line */}
+              <div className="flex flex-col items-center">
+                <div className="w-3 h-3 rounded-full bg-blue-500 shadow-md shadow-blue-500/30" />
+                <div className="flex-1 w-[1px] bg-white/10 mt-2" />
               </div>
 
-              {/* Icon Placeholder (You can add actual icons here later) */}
-              <div className="w-16 h-16 rounded-2xl bg-gray-800/80 mb-6 flex items-center justify-center text-gray-500 text-3xl font-mono">
-                {`{ }`}
-              </div>
+              {/* Content */}
+              <div className="flex-1 text-left">
 
-              <h3 className="text-blue-500 font-bold text-2xl mb-3 tracking-tight">
-                {skill.name}
-              </h3>
-              
-              <p className="text-sm text-gray-500 mb-8 flex-grow leading-relaxed">
-                {skill.reason}
-              </p>
+                {/* Header row */}
+                <div className="flex justify-between items-center">
+                  <h3 className="text-xl font-semibold surface-heading">
+                    {skill.name}
+                  </h3>
 
-              {/* THE PROGRESS BAR */}
-              <div className="w-full mt-auto">
-                <div className="flex justify-between items-center mb-1 text-xs text-gray-500">
-                  <span>Current Progress</span>
-                  <span>{skill.progress}%</span>
+                  <span className="text-xs surface-copy">
+                    {skill.progress}% progress
+                  </span>
                 </div>
-                <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
+
+                {/* Description */}
+                <p className="text-sm mt-2 leading-relaxed surface-copy">
+                  {skill.reason}
+                </p>
+
+                {/* Progress bar (minimal Apple style) */}
+                <div className="mt-4 w-full h-1 surface-bar rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.progress}%` }}
-                    transition={{ duration: 1, delay: index * 0.2 }}
-                    className="h-full bg-blue-600 rounded-full"
-                  ></motion.div>
+                    transition={{ duration: 1 }}
+                    className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
+                  />
                 </div>
+
               </div>
 
             </motion.div>
           ))}
+
         </div>
+
       </div>
     </section>
   );

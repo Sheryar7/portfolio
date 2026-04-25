@@ -2,76 +2,123 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section id="about" className="section flex items-center min-h-[90vh]">
-      <div className="container-custom grid md:grid-cols-2 gap-10 items-center">
+    <section id="home" className="section flex items-center min-h-[90vh] relative overflow-hidden">
 
-        {/* LEFT - The Professional Pitch */}
+      {/* Soft background glow (Apple style depth) */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-blue-500/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full" />
+      </div>
+
+      <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
+
+        {/* LEFT - Premium Typography */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-3xl font-extrabold leading-tight">
-             Building <span className="gradient-text">Scalable Full-Stack Applications</span> with the <span className="gradient-text">MERN</span> Stack
-          </h1>
-
-          <p className="text-gray-700 mt-6 text-lg leading-relaxed">
-            I design and develop high-performance web applications with a strong focus on clean architecture, 
-            efficient state management, and real-world problem solving.
+          <p className="text-xs tracking-[0.3em] uppercase text-muted mb-4">
+            Full-Stack Engineer
           </p>
 
+          <h1 className="text-4xl font-semibold leading-tight">
+            Building{" "}
+            <span className="gradient-text">Scalable Backend Systems</span>{" "}
+            with NestJS, MERN & Microservices
+          </h1>
+
+          <p className="text-muted mt-6 text-lg leading-relaxed max-w-xl">
+            I design and build production-grade backend systems focused on
+            <span className="theme-highlight"> scalability, reliability, and clean architecture</span>.
+            My work spans APIs, microservices, and real-world distributed systems.
+          </p>
+
+          {/* Buttons */}
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#projects" className="btn-primary">View My Work</a>
-            <a href="#contact" className="btn-outline">Hire Me</a>
-            {/* Ensure your CV is in the 'public' folder for this link to work */}
-            <a href="/Sheryar Khan CV.pdf" download className="btn-outline">Download CV</a>
+            <a href="#projects" className="btn-primary">
+              View Work
+            </a>
+
+            <a href="#contact" className="btn-secondary">
+              Contact
+            </a>
+
+            <a href="/Sheryar Khan CV.pdf" download className="btn-secondary">
+              Download CV
+            </a>
           </div>
         </motion.div>
 
-        {/* RIGHT - The Tech Evolution Card */}
+        {/* RIGHT - Apple-style System Card */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="glass p-8 rounded-3xl border border-white/5 relative overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="relative surface-panel p-8 overflow-hidden"
         >
-          <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl font-bold italic">
-            MERN
+
+          {/* Floating label */}
+          <div className="absolute top-6 right-6 text-[80px] font-bold opacity-5">
+            Sherry
           </div>
 
-          <p className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-2">Current Focus</p>
-          <h3 className="text-2xl font-bold mt-2">Architecture & State</h3>
+          <p className="text-xs tracking-widest text-blue-400 uppercase">
+            Current Focus
+          </p>
 
-          <div className="space-y-4 mt-6">
-            <div className="flex items-start gap-3">
-              <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2"></div>
-              <p className="text-gray-500 text-sm">
-                <strong>SkillForge LMS:</strong> Robust state handling with Redux.
+          <h3 className="text-2xl font-semibold mt-2">
+            Backend Architecture & Distributed Systems
+          </h3>
+
+          <div className="mt-8 space-y-5">
+
+            {/* Item */}
+            <div className="flex gap-4">
+              <div className="w-2 h-2 mt-2 rounded-full bg-blue-500" />
+              <p className="text-sm leading-relaxed surface-copy">
+                <span className="surface-heading font-medium">SkillForge LMS</span> —
+                scalable MERN system with structured state management and clean architecture.
               </p>
             </div>
-            <div className="flex items-start gap-3">
-              <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2"></div>
-              <p className="text-gray-500 text-sm">
-                <strong>Auth-App:</strong> Lightweight logic with Zustand.
+
+            <div className="flex gap-4">
+              <div className="w-2 h-2 mt-2 rounded-full bg-cyan-400" />
+              <p className="text-sm leading-relaxed surface-copy">
+                <span className="surface-heading font-medium">Auth System</span> —
+                secure authentication with JWT, OTP verification, and modern state handling.
               </p>
             </div>
-            <div className="flex items-start gap-3">
-              <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2"></div>
-              <p className="text-gray-500 text-sm">
-                <strong>Next Phase:</strong> Transitioning to Next.js & TypeScript.
+
+            <div className="flex gap-4">
+              <div className="w-2 h-2 mt-2 rounded-full bg-purple-500" />
+              <p className="text-sm leading-relaxed surface-copy">
+                <span className="surface-heading font-medium">Time-Off Microservice (NestJS)</span> —
+                built with HCM integration, balance reservation, rollback logic, and audit system.
               </p>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="w-2 h-2 mt-2 rounded-full bg-green-500" />
+              <p className="text-sm leading-relaxed surface-copy">
+                <span className="surface-heading font-medium">Next Phase</span> —
+                system design, PostgreSQL, TypeScript architecture & scalable backend systems.
+              </p>
+            </div>
+
+          </div>
+
+          {/* Footer */}
+          <div className="mt-10 pt-6 border-t border-white/10 flex justify-between items-center text-xs text-muted">
+            <span>Pakistan</span>
+
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              Available for Backend Roles
             </div>
           </div>
 
-          <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center">
-            <span className="text-xs text-gray-500">Peshawar, PK</span>
-            <div className="flex gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-              <span className="text-xs text-gray-500">Available for Work</span>
-            </div>
-          </div>
         </motion.div>
-
       </div>
     </section>
   );
