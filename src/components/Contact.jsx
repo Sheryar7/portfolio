@@ -7,6 +7,10 @@ import {
   FaMapMarkerAlt
 } from "react-icons/fa";
 import HighlightText from "./HighlightText";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
+import Loader from "./Loader";
+import { toast } from "react-toastify";
 
 const contactData = [
   {
@@ -36,10 +40,36 @@ const contactData = [
 ];
 
 const Contact = () => {
+  const form = useRef();
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_93844nm",
+        "template_8nhdoqf",
+        form.current,
+        "17NW7VfOyy6qcHgDC"
+      )
+      .then(() => {
+        toast.success("Message sent successfully");
+        form.current.reset();
+      })
+      .catch(() => {
+        toast.error("Failed to send message. Please try again.");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
   return (
     <section id="contact" className="py-28 relative overflow-hidden">
 
-      {/* background glow (Apple style depth) */}
+      {/* Background glow */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-[-180px] left-[-180px] w-[500px] h-[500px] bg-blue-500/10 blur-[140px] rounded-full" />
         <div className="absolute bottom-[-180px] right-[-180px] w-[500px] h-[500px] bg-purple-500/10 blur-[140px] rounded-full" />
@@ -51,7 +81,6 @@ const Contact = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
           <h2 className="text-4xl font-semibold mb-4">
@@ -62,7 +91,6 @@ const Contact = () => {
 
           <p className="text-muted max-w-xl mx-auto text-lg">
             Open for backend, full-stack, and system design opportunities.
-            Let’s connect and build scalable products.
           </p>
 
           <div className="flex items-center justify-center gap-2 mt-4 text-sm text-muted">
@@ -71,55 +99,75 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        {/* Contact hub */}
+        {/* Contact Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
           {contactData.map((item, index) => (
             <motion.a
               key={index}
               href={item.link}
               target="_blank"
               rel="noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="group relative p-6 surface-card transition overflow-hidden"
+              className="p-6 surface-card"
             >
-
-              {/* Icon */}
-              <div className="text-2xl mb-4 surface-icon transition group-hover:text-blue-600">
+              <div className="text-2xl mb-4 surface-icon">
                 {item.icon}
               </div>
 
-              {/* Label */}
-              <h3 className="text-xs tracking-widest uppercase text-muted mb-1">
+              <h3 className="text-xs uppercase text-muted">
                 {item.label}
               </h3>
 
-              {/* Value */}
-              <p className="text-sm surface-copy transition break-all">
+              <p className="text-sm break-all">
                 {item.value}
               </p>
-
             </motion.a>
           ))}
-
         </div>
 
-        {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="mt-24 text-center"
+        {/* Contact Form */}
+        <motion.form
+          ref={form}
+          onSubmit={sendEmail}
+          className="mt-16 max-w-2xl mx-auto space-y-4"
         >
-          <div className="h-px w-full bg-white/10 mb-8" />
 
-          <p className="text-muted text-sm">
-            © {new Date().getFullYear()} Sheryar Khan — Built with React, NestJS & passion for scalable systems
-          </p>
+          <input
+            type="text"
+            name="user_name"
+            placeholder="Your Name"
+            required
+            className="input"
+          />
 
-        </motion.div>
+          <input
+            type="email"
+            name="user_email"
+            placeholder="Your Email"
+            required
+            className="input"
+          />
+
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows="5"
+            required
+            className="input resize-none"
+          />
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="
+              w-full py-3 rounded-xl font-medium transition
+              bg-blue-600 hover:bg-blue-700 text-white
+              flex items-center justify-center
+            "
+          >
+            {loading ? <Loader /> : "Send Message"}
+          </button>
+
+        </motion.form>
 
       </div>
     </section>
