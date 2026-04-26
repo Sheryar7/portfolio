@@ -3,14 +3,14 @@ import HighlightText from "./HighlightText";
 
 const Skills = () => {
   const skills = [
-    { name: "React", level: 90, type: "Frontend" },
-    { name: "Node.js", level: 85, type: "Backend" },
-    { name: "NestJS", level: 65, type: "Backend" },
+    { name: "React", level: 75, type: "Frontend" },
+    { name: "Node.js", level: 70, type: "Backend" },
+    { name: "NestJS", level: 50, type: "Backend" },
     { name: "MongoDB", level: 70, type: "Database" },
-    { name: "JWT Authentication", level: 80, type: "Backend" },
-    { name: "REST APIs", level: 90, type: "Backend" },
+    { name: "JWT Authentication", level: 70, type: "Backend" },
+    { name: "REST APIs", level: 75, type: "Backend" },
     { name: "System Design", level: 70, type: "Architecture" },
-    { name: "Tailwind CSS", level: 90, type: "Frontend" }
+    { name: "Tailwind CSS", level: 75, type: "Frontend" }
   ];
 
   return (
