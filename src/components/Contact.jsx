@@ -9,7 +9,7 @@ import {
 import HighlightText from "./HighlightText";
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
-import Loader from "./Loader";
+import loader from "./loader";
 import { toast } from "react-toastify";
 
 const contactData = [
