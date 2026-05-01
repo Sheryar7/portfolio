@@ -59,7 +59,23 @@ const projects = [
       "Audit logging"
     ],
     tech: ["NestJS", "SQLite", "TypeORM", "Jest"]
-  }
+  },
+  {
+  id: "blog",
+  title: "Next.js Blog App",
+  desc: "A modern blog application built with Next.js App Router featuring dynamic routing and API data fetching.",
+  img: "/blog-app.png",
+  live: "https://nextjs-blog-app-one-chi.vercel.app/",
+  github: "https://github.com/Sheryar7/nextjs-blog-app",
+  features: [
+    "File-based routing (App Router)",
+    "Dynamic routes (/posts/[id])",
+    "API data fetching with async/await",
+    "Loading and error handling",
+    "Responsive UI with Tailwind CSS"
+  ],
+  tech: ["Next.js", "Tailwind CSS"]
+}
 ];
 
 const Projects = () => {
