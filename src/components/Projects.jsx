@@ -1,204 +1,293 @@
-import { motion, AnimatePresence } from "framer-motion";
+﻿import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import HighlightText from "./HighlightText";
+import {
+  FaExternalLinkAlt,
+  FaGithub,
+  FaStar,
+  FaTimes,
+} from "react-icons/fa";
 
 const projects = [
   {
-    id: "skillforge",
-    title: "SkillForge LMS",
-    desc: "Scalable EdTech platform with course management and progress tracking.",
+    id: "modern-lms-saas",
+    title: "SkillForge — Modern LMS SaaS Platform",
+    desc: "Modern SaaS-style LMS with role-based dashboards, Supabase auth, and responsive Tailwind UI.",
+    img: "/homepage.png",
+    live: "https://modern-lms-smoky.vercel.app/",
+    github: "https://github.com/Sheryar7/skillforge-lms",
+    features: [
+      "Instructor & student role-based dashboards",
+      "Protected routes and authentication middleware",
+      "Course curriculum builder with sections and lessons",
+      "Supabase authentication with PostgreSQL integration",
+      "Responsive SaaS-style UI built with Tailwind CSS",
+      "Reusable component architecture and App Router structure",
+      "Analytics dashboard foundation",
+    ],
+    tech: ["Next.js 15", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
+  },
+  {
+    id: "hcm-timeoff",
+    title: "HCM Time-Off Microservice",
+    desc: "NestJS backend service for time-off requests with balance consistency, rollback logic, and HCM-style sync.",
+    img: "/HCM.png",
+    github: "https://github.com/Sheryar7/readyon-timeoff-microservice",
+    features: [
+      "Modular NestJS architecture",
+      "Balance reservation and rollback mechanism",
+      "SQLite database with TypeORM",
+      "DTO validation and audit logging",
+      "Designed for external HCM sync scenarios",
+    ],
+    tech: ["NestJS", "TypeScript", "SQLite", "TypeORM"],
+  },
+  {
+    id: "skillforge-lms",
+    title: "SkillForge — Learning Management System",
+    desc: "Full-stack LMS with role-based access, secure JWT authentication, and course enrollment workflows.",
     img: "/home.png",
     live: "https://skillforge-frontend-blue.vercel.app/",
     github: "https://github.com/Sheryar7/skillforge-frontend",
     features: [
-      "Course management system",
-      "Student progress tracking",
-      "Interactive dashboards",
-      "JWT authentication"
+      "MERN stack architecture with separate frontend and backend",
+      "OTP-based authentication and secure JWT flows",
+      "Instructor dashboard for course creation",
+      "Student dashboard for enrollment and progress",
+      "Cloudinary-based media upload support",
+      "RBAC for Student, Instructor, and Admin roles",
     ],
-    tech: ["MongoDB", "Express", "React", "Node.js"]
+    tech: ["React", "Node.js", "Express", "MongoDB"],
   },
   {
-    id: "cart",
-    title: "Shopping Cart",
-    desc: "Advanced state management using Redux Toolkit.",
-    img: "/shoppingCart.png",
-    live: "https://shopping-cart-jet-alpha.vercel.app/",
-    github: "https://github.com/Sheryar7/shopping-cart",
-    features: [
-      "Redux Toolkit slices",
-      "Global state management",
-      "Cart persistence"
-    ],
-    tech: ["React", "Redux Toolkit"]
-  },
-  {
-    id: "auth",
-    title: "Auth-App",
-    desc: "Secure auth system with OTP + JWT + Zustand.",
+    id: "auth-system",
+    title: "Authentication System (Zustand + JWT)",
+    desc: "Modern auth system with OTP email verification, JWT security, and Zustand for global state.",
     img: "/authapp.png",
-    live: "https://auth-app-frontend-blue.vercel.app/",
+    live: "https://vercel.com/sheryar7s-projects/auth-app-frontend",
     github: "https://github.com/Sheryar7/auth-app-frontend",
     features: [
-      "JWT authentication",
-      "OTP verification",
-      "Bcrypt hashing"
+      "Signup/Login with JWT authentication",
+      "OTP email verification flow",
+      "Forgot/reset password flow",
+      "Global state management using Zustand",
+      "Protected routes and middleware handling",
     ],
-    tech: ["React", "Node.js", "MongoDB"]
+    tech: ["React", "Zustand", "JWT", "Node.js"],
   },
   {
-    id: "hcm",
-    title: "Time-Off Microservice",
-    desc: "Backend system ensuring balance consistency with HCM.",
-    img: "/HCM.png",
-    github: "https://github.com/Sheryar7/timeoff-microservice",
+    id: "shopping-cart",
+    title: "Shopping Cart (Redux Toolkit)",
+    desc: "Frontend practice app focused on Redux Toolkit state management and cart persistence.",
+    img: "/shoppingCart.png",
+    github: "https://github.com/Sheryar7/shopping-cart",
     features: [
-      "Balance reservation",
-      "Rollback mechanism",
-      "HCM sync",
-      "Audit logging"
+      "Redux Toolkit slices and reducers",
+      "Global cart state management",
+      "Persisted cart and product interactions",
+      "Optimized state updates and UI rendering",
     ],
-    tech: ["NestJS", "SQLite", "TypeORM", "Jest"]
+    tech: ["React", "Redux Toolkit"],
   },
-  {
-  id: "blog",
-  title: "Next.js Blog App",
-  desc: "A modern blog application built with Next.js App Router featuring dynamic routing and API data fetching.",
-  img: "/blog-app.png",
-  live: "https://nextjs-blog-app-one-chi.vercel.app/",
-  github: "https://github.com/Sheryar7/nextjs-blog-app",
-  features: [
-    "File-based routing (App Router)",
-    "Dynamic routes (/posts/[id])",
-    "API data fetching with async/await",
-    "Loading and error handling",
-    "Responsive UI with Tailwind CSS"
-  ],
-  tech: ["Next.js", "Tailwind CSS"]
-}
 ];
 
 const Projects = () => {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section id="projects" className="section">
-      <div className="container-custom">
-        
-        {/* Title */}
-        <h2 className="text-4xl font-bold text-center mb-16">
-          <span className="gradient-text">
-            <HighlightText>Selected Work</HighlightText>
-          </span>
-        </h2>
+    <section
+      id="projects"
+      className="relative py-28 px-6 overflow-hidden"
+    >
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-32 left-10 w-72 h-72 bg-violet-500/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-cyan-500/10 blur-[120px] rounded-full" />
+      </div>
 
-        {/* GRID */}
-        <div className="grid md:grid-cols-2 gap-10">
-          {projects.map((project) => (
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-sm text-gray-300 mb-6"
+          >
+            <FaStar size={16} className="text-violet-600" />
+            Resume Projects
+          </motion.div>
+
+          <h2 className="text-5xl md:text-6xl font-black tracking-tight mb-6">
+            <span className="bg-gradient-to-r from-white via-violet-200 to-cyan-200 bg-clip-text text-transparent">
+              <HighlightText>Highlighted Projects</HighlightText>
+            </span>
+          </h2>
+
+          <p className="max-w-2xl mx-auto text-gray-400 text-lg leading-relaxed">
+            Real projects showcasing full-stack architecture, secure authentication, backend services, and modern SaaS UI.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
               layoutId={project.id}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.45,
+                delay: index * 0.05,
+              }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
               onClick={() => setSelected(project)}
-              className="cursor-pointer group rounded-2xl overflow-hidden surface-card shadow-xl"
-              whileHover={{ y: -6 }}
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+              className="group cursor-pointer rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-2xl"
             >
-              {/* Image */}
-              <div className="h-56 overflow-hidden">
+              <div className="relative h-60 overflow-hidden">
                 <img
                   src={project.img}
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  alt={project.title}
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                 />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                <div className="absolute bottom-5 left-5 right-5">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.tech.slice(0, 3).map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 rounded-full text-xs font-medium bg-black/40 backdrop-blur-md border border-white/10 text-gray-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white">
+                    {project.title}
+                  </h3>
+                </div>
               </div>
 
-              {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-semibold">{project.title}</h3>
-                <p className="text-sm mt-2 surface-copy">
+                <p className="text-gray-400 leading-relaxed text-sm">
                   {project.desc}
                 </p>
+
+                <div className="flex items-center gap-4 mt-6">
+                  <button
+                    type="button"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setSelected(project);
+                    }}
+                    className="text-sm font-semibold text-violet-400"
+                  >
+                    View Details →
+                  </button>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* 🔥 APPLE-STYLE MORPH MODAL */}
         <AnimatePresence>
           {selected && (
             <>
-              {/* Background blur */}
               <motion.div
-                className="fixed inset-0 backdrop-overlay backdrop-blur-xl z-40"
+                className="fixed inset-0 bg-black/70 backdrop-blur-xl z-40"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setSelected(null)}
               />
 
-              {/* Expanding Card */}
               <motion.div
                 layoutId={selected.id}
-                className="fixed top-1/2 left-1/2 w-[90%] max-w-3xl -translate-x-1/2 -translate-y-1/2 z-50 rounded-2xl overflow-hidden surface-panel shadow-2xl"
+                className="fixed top-1/2 left-1/2 w-[94%] max-w-4xl max-h-[90vh] -translate-x-1/2 -translate-y-1/2 z-50 rounded-[32px] overflow-hidden border border-white/10 bg-[#0d0d12] shadow-[0_0_80px_rgba(0,0,0,0.8)]"
               >
-                {/* Image */}
-                <div className="h-64 overflow-hidden">
+                <button
+                  onClick={() => setSelected(null)}
+                  className="absolute top-5 right-5 z-50 p-2 rounded-full bg-black/40 border border-white/10 text-white hover:bg-black/70 transition"
+                >
+                  <FaTimes size={18} />
+                </button>
+
+                <div className="relative h-[320px] overflow-hidden">
                   <img
                     src={selected.img}
+                    alt={selected.title}
                     className="w-full h-full object-cover"
                   />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d12] via-black/40 to-transparent" />
+
+                  <div className="absolute bottom-8 left-8">
+                    <h2 className="text-4xl font-black text-white mb-3">
+                      {selected.title}
+                    </h2>
+
+                    <div className="flex flex-wrap gap-2">
+                      {selected.tech.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/10 border border-white/10 text-gray-200 backdrop-blur-md"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <h2 className="text-2xl font-semibold surface-heading mb-2">
-                    {selected.title}
-                  </h2>
-
-                  <p className="text-sm mb-4 surface-copy">
+                <div className="p-8 overflow-y-auto max-h-[calc(90vh-320px)]">
+                  <p className="text-gray-400 leading-relaxed text-[15px] mb-8">
                     {selected.desc}
                   </p>
 
-                  {/* Features */}
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold mb-2 surface-heading">
+                  <div className="mb-10">
+                    <h4 className="text-white text-lg font-semibold mb-5">
                       Key Features
                     </h4>
-                    <ul className="text-sm surface-copy list-disc list-inside space-y-1">
-                      {selected.features.map((f, i) => (
-                        <li key={i}>{f}</li>
+
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {selected.features.map((feature, index) => (
+                        <div
+                          key={index}
+                          className="flex items-start gap-3 p-4 rounded-2xl border border-white/10 bg-white/[0.03]"
+                        >
+                          <div className="mt-1 w-2 h-2 rounded-full bg-violet-400" />
+                          <p className="text-sm text-gray-300 leading-relaxed">
+                            {feature}
+                          </p>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
 
-                  {/* Tech */}
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {selected.tech.map((t, i) => (
-                      <span
-                        key={i}
-                        className="surface-tag"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-4">
                     {selected.live && (
                       <a
                         href={selected.live}
                         target="_blank"
-                        className="btn-primary"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-semibold hover:scale-[1.02] transition"
                       >
-                        Live
+                        <FaExternalLinkAlt size={18} />
+                        Live Demo
                       </a>
                     )}
+
                     <a
                       href={selected.github}
                       target="_blank"
-                      className="btn-outline"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-white/10 bg-white/[0.03] text-white font-semibold hover:bg-white/[0.06] transition"
                     >
-                      Code
+                      <FaGithub size={18} />
+                      View Code
                     </a>
                   </div>
                 </div>

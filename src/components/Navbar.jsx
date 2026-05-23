@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaSun, FaMoon } from "react-icons/fa";
 import useTheme from "../hooks/useTheme";
 import HighlightText from "./HighlightText";
@@ -10,9 +10,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "projects", "roadmap", "contact"];
+      const sections = ["about", "projects", "skills", "contact"];
       
-      // 1. Check if user is at the very bottom of the page
       const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
 
       if (isAtBottom) {
@@ -20,12 +19,10 @@ const Navbar = () => {
         return;
       }
 
-      // 2. Standard Scroll Spy Logic
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // If the top of the section is in the top 40% of the screen
           if (rect.top <= 150 && rect.bottom >= 150) {
             setActive(section);
             break;
@@ -41,8 +38,7 @@ const Navbar = () => {
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      // Offset for fixed navbar
-      const yOffset = -80; 
+      const yOffset = -80;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
       setOpen(false);
@@ -76,8 +72,8 @@ const Navbar = () => {
           <span onClick={() => handleScrollTo("projects")} className={linkClass("projects")}>
             Projects <Underline section="projects" />
           </span>
-          <span onClick={() => handleScrollTo("roadmap")} className={linkClass("roadmap")}>
-            Roadmap <Underline section="roadmap" />
+          <span onClick={() => handleScrollTo("skills")} className={linkClass("skills")}>
+            Skills <Underline section="skills" />
           </span>
           <span onClick={() => handleScrollTo("contact")} className={linkClass("contact")}>
             Contact <Underline section="contact" />
@@ -103,7 +99,7 @@ const Navbar = () => {
 
       {open && (
         <div className="md:hidden text-center py-6 space-y-6 flex flex-col items-center mobile-menu">
-          {["about", "projects", "roadmap", "contact"].map((item) => (
+          {["about", "projects", "skills", "contact"].map((item) => (
             <p key={item} onClick={() => handleScrollTo(item)} className={`text-lg capitalize cursor-pointer nav-link ${active === item ? "nav-link-active font-bold" : ""}`}>
               {item}
             </p>

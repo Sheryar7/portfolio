@@ -8,7 +8,6 @@ const useTheme = () => {
   useEffect(() => {
     const root = window.document.documentElement;
 
-    // We use 'dark' as the standard class for Tailwind dark mode
     if (theme === "dark") {
       root.classList.add("dark");
       root.classList.remove("light");
@@ -18,7 +17,23 @@ const useTheme = () => {
     }
 
     localStorage.setItem("theme", theme);
+    window.dispatchEvent(new Event("themechange"));
   }, [theme]);
+
+  useEffect(() => {
+    const handleThemeSync = () => {
+      const current = localStorage.getItem("theme") || "dark";
+      setTheme(current);
+    };
+
+    window.addEventListener("themechange", handleThemeSync);
+    window.addEventListener("storage", handleThemeSync);
+
+    return () => {
+      window.removeEventListener("themechange", handleThemeSync);
+      window.removeEventListener("storage", handleThemeSync);
+    };
+  }, []);
 
   return { theme, setTheme };
 };
