@@ -89,6 +89,22 @@ const projects = [
     ],
     tech: ["React", "Redux Toolkit"],
   },
+  {
+    id: "voltforge-solar",
+    title: "VoltForge Solar Suite",
+    desc: "Professional solar cable sizing and inverter compatibility application built to comply with global IEC engineering codes.",
+    img: "/solar-cable-calc-app.png",
+    live: "https://solar-cable-calc-app.vercel.app/",
+    github: "https://github.com/Sheryar7/solar-cable-calc-app",
+    features: [
+      "IEC 60364-5-52 compliant current capacity calculation engine",
+      "Dynamic ambient temperature and conduit grouping derating factors",
+      "Real-time engineering calculations for string, main trunk, and AC losses",
+      "Intelligent live matching engine for inverter selection sizing ratios",
+      "Tailwind CSS responsive dashboard interface with client-side state caching",
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "React Context Hook"],
+  }
 ];
 
 const Projects = () => {
