@@ -32,7 +32,7 @@ const Hero = () => {
             I focus on modern SaaS architecture, authentication systems, role-based access, and deploy-ready production applications.
           </p>
 
-          <div className="mt-8 grid gap-3 text-sm text-gray-300 max-w-xl">
+          <div className="mt-8 grid gap-3 text-sm text-gray-400 max-w-xl">
             <p>📍 Peshawar, Pakistan</p>
             <p>📞 WhatsApp: <a href="https://wa.me/923120916801" className="text-blue-300 hover:underline">0312-0916801</a></p>
             <p>📧 <a href="mailto:sheryarkhan7712@gmail.com" className="text-blue-300 hover:underline">sheryarkhan7712@gmail.com</a></p>

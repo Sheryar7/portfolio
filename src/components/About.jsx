@@ -44,14 +44,14 @@ const About = () => {
             className="surface-card p-8"
           >
             <h3 className="text-3xl font-semibold mb-6">Professional Summary</h3>
-            <p className="text-gray-300 leading-relaxed mb-6">
+            <p className="text-gray-400 leading-relaxed mb-6">
               Self-taught Full-Stack Developer with hands-on experience building scalable web applications using Next.js, React, Node.js, Express, Supabase, PostgreSQL, and MongoDB.
               Strong understanding of modern SaaS architecture, authentication systems, REST APIs, role-based access control, and reusable frontend/backend systems.
             </p>
-            <p className="text-gray-300 leading-relaxed mb-4">
+            <p className="text-gray-400 leading-relaxed mb-4">
               Recently built and deployed a modern Learning Management System (LMS) using Next.js App Router, TypeScript, Supabase, and Tailwind CSS, focusing on scalable architecture, protected dashboards, curriculum management, and responsive SaaS UI patterns.
             </p>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed">
               Actively seeking a remote internship or junior full-stack developer role to contribute to real-world software systems and continue growing in modern web engineering.
             </p>
           </motion.div>
@@ -63,7 +63,7 @@ const About = () => {
               className="surface-card p-8"
             >
               <h3 className="text-3xl font-semibold mb-6">Education</h3>
-              <p className="text-gray-300 font-semibold">Abasyn University, Peshawar</p>
+              <p className="text-gray-400 font-semibold">Abasyn University, Peshawar</p>
               <p className="text-gray-400 mb-4">Bachelor of Software Engineering</p>
               <p className="text-sm text-gray-500">Graduated: September 2023</p>
             </motion.div>
@@ -74,7 +74,7 @@ const About = () => {
               className="surface-card p-8"
             >
               <h3 className="text-3xl font-semibold mb-6">Strengths</h3>
-              <ul className="space-y-3 text-gray-300">
+              <ul className="space-y-3 text-gray-400">
                 <li>• Strong self-learning ability and independent development.</li>
                 <li>• Hands-on backend debugging and production problem solving.</li>
                 <li>• Understanding of scalable frontend/backend architecture.</li>
@@ -89,7 +89,7 @@ const About = () => {
               className="surface-card p-8"
             >
               <h3 className="text-3xl font-semibold mb-6">Languages</h3>
-              <div className="grid grid-cols-2 gap-4 text-gray-300">
+              <div className="grid grid-cols-2 gap-4 text-gray-400">
                 <span>English</span>
                 <span>Urdu</span>
                 <span>Pashto</span>
