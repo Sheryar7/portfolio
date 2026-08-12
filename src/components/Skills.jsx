@@ -3,16 +3,17 @@ import HighlightText from "./HighlightText";
 
 const Skills = () => {
   const skills = [
-    { name: "HTML5 / CSS3", level: 75, type: "Frontend" },
-    { name: "JavaScript (ES6+)", level: 70, type: "Frontend" },
-    { name: "React.js / Next.js", level: 70, type: "Frontend" },
-    { name: "TypeScript", level: 72, type: "Frontend" },
-    { name: "Tailwind CSS", level: 78, type: "Frontend" },
-    { name: "Node.js / Express", level: 78, type: "Backend" },
-    { name: "NestJS", level: 60, type: "Backend" },
-    { name: "MongoDB / Mongoose", level: 75, type: "Database" },
-    { name: "PostgreSQL / Supabase", level: 60, type: "Database" },
-    { name: "JWT Auth & RBAC", level: 72, type: "Security" },
+    { name: "RAG Architecture & Embeddings", level: 82, type: "AI / LLM" },
+    { name: "PostgreSQL / Supabase (pgvector)", level: 80, type: "Database" },
+    { name: "React.js / Next.js", level: 88, type: "Frontend" },
+    { name: "TypeScript", level: 85, type: "Frontend" },
+    { name: "Tailwind CSS", level: 90, type: "Frontend" },
+    { name: "Node.js / Express", level: 85, type: "Backend" },
+    { name: "NestJS", level: 78, type: "Backend" },
+    { name: "MongoDB / Mongoose", level: 80, type: "Database" },
+    { name: "JWT Auth & RBAC", level: 85, type: "Security" },
+    { name: "HTML5 / CSS3", level: 85, type: "Frontend" },
+    { name: "JavaScript (ES6+)", level: 85, type: "Frontend" },
   ];
 
   return (

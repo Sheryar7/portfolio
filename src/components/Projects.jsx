@@ -6,9 +6,26 @@ import {
   FaGithub,
   FaStar,
   FaTimes,
+  FaCheckCircle,
 } from "react-icons/fa";
 
 const projects = [
+  {
+    id: "skillgraph-rag",
+    title: "SkillGraph — Candidate RAG & Knowledge Search Engine",
+    desc: "AI-powered Retrieval-Augmented Generation (RAG) platform that parses candidate PDFs, converts context into vector embeddings, and executes cosine similarity searches.",
+    img: "/skillgraph.png",
+    github: "https://github.com/Sheryar7/skillgraph",
+    features: [
+      "End-to-end RAG architecture with vector similarity search",
+      "NestJS backend for asynchronous PDF parsing and text chunking",
+      "Google Gemini API integration for generating high-dimensional embeddings",
+      "Supabase PostgreSQL with pgvector extension for similarity indexing",
+      "Cosine similarity search with confidence match scoring (75%+ precision)",
+      "Next.js 14 frontend dashboard with real-time indexing status updates",
+    ],
+    tech: ["Next.js 14", "NestJS", "TypeScript", "Supabase (pgvector)", "Gemini AI"],
+  },
   {
     id: "modern-lms-saas",
     title: "SkillForge — Modern LMS SaaS Platform",
@@ -104,23 +121,22 @@ const projects = [
       "Tailwind CSS responsive dashboard interface with client-side state caching",
     ],
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "React Context Hook"],
-  }
+  },
 ];
 
 const Projects = () => {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section
-      id="projects"
-      className="relative py-28 px-6 overflow-hidden"
-    >
+    <section id="projects" className="relative py-28 px-6 overflow-hidden">
+      {/* Background Glow Effects */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-32 left-10 w-72 h-72 bg-violet-500/10 blur-[120px] rounded-full" />
         <div className="absolute bottom-20 right-10 w-72 h-72 bg-cyan-500/10 blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <div className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -129,7 +145,7 @@ const Projects = () => {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-sm text-gray-300 mb-6"
           >
-            <FaStar size={16} className="text-violet-600" />
+            <FaStar size={16} className="text-violet-500" />
             Resume Projects
           </motion.div>
 
@@ -144,11 +160,11 @@ const Projects = () => {
           </p>
         </div>
 
+        {/* Project Grid */}
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              layoutId={project.id}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
@@ -156,156 +172,175 @@ const Projects = () => {
                 delay: index * 0.05,
               }}
               viewport={{ once: true }}
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -6 }}
               onClick={() => setSelected(project)}
-              className="group cursor-pointer rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-2xl"
+              className="group cursor-pointer rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl flex flex-col hover:border-violet-500/40 transition duration-300"
             >
-              <div className="relative h-60 overflow-hidden">
+              {/* Card Image */}
+              <div className="relative h-48 overflow-hidden bg-slate-900">
                 <img
                   src={project.img}
                   alt={project.title}
-                  className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              </div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-                <div className="absolute bottom-5 left-5 right-5">
-                  <div className="flex flex-wrap gap-2 mb-3">
+              {/* Card Content */}
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex flex-wrap gap-1.5 mb-3">
                     {project.tech.slice(0, 3).map((tech, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 rounded-full text-xs font-medium bg-black/40 backdrop-blur-md border border-white/10 text-gray-200"
+                        className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-white/10 text-violet-300 border border-white/5"
                       >
                         {tech}
                       </span>
                     ))}
+                    {project.tech.length > 3 && (
+                      <span className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-white/5 text-gray-400">
+                        +{project.tech.length - 3}
+                      </span>
+                    )}
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="text-xl font-bold text-white mb-2 line-clamp-1 group-hover:text-violet-300 transition">
                     {project.title}
                   </h3>
+
+                  <p className="text-gray-400 text-sm line-clamp-2 leading-relaxed">
+                    {project.desc}
+                  </p>
                 </div>
-              </div>
 
-              <div className="p-6">
-                <p className="text-gray-400 leading-relaxed text-sm">
-                  {project.desc}
-                </p>
-
-                <div className="flex items-center gap-4 mt-6">
-                  <button
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      setSelected(project);
-                    }}
-                    className="text-sm font-semibold text-violet-400"
-                  >
+                <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-xs font-semibold text-violet-400 flex items-center gap-1 group-hover:translate-x-1 transition">
                     View Details →
-                  </button>
+                  </span>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* Modal */}
         <AnimatePresence>
           {selected && (
             <>
+              {/* Backdrop */}
               <motion.div
-                className="fixed inset-0 bg-black/70 backdrop-blur-xl z-40"
+                className="fixed inset-0 bg-black/80 backdrop-blur-md z-40"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setSelected(null)}
               />
 
+              {/* Modal Container */}
               <motion.div
-                layoutId={selected.id}
-                className="fixed top-1/2 left-1/2 w-[94%] max-w-4xl max-h-[90vh] -translate-x-1/2 -translate-y-1/2 z-50 rounded-[32px] overflow-hidden border border-white/10 bg-[#0d0d12] shadow-[0_0_80px_rgba(0,0,0,0.8)]"
+                initial={{ opacity: 0, scale: 0.95, y: "-45%", x: "-50%" }}
+                animate={{ opacity: 1, scale: 1, y: "-50%", x: "-50%" }}
+                exit={{ opacity: 0, scale: 0.95, y: "-45%", x: "-50%" }}
+                transition={{ type: "spring", duration: 0.4 }}
+                className="fixed top-1/2 left-1/2 w-[92%] max-w-3xl max-h-[85vh] z-50 rounded-2xl overflow-hidden border border-white/15 bg-[#0b0c10] shadow-2xl flex flex-col"
               >
+                {/* Close Button */}
                 <button
                   onClick={() => setSelected(null)}
-                  className="absolute top-5 right-5 z-50 p-2 rounded-full bg-black/40 border border-white/10 text-white hover:bg-black/70 transition"
+                  className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/60 border border-white/20 text-gray-300 hover:text-white hover:bg-black/90 transition"
                 >
-                  <FaTimes size={18} />
+                  <FaTimes size={16} />
                 </button>
 
-                <div className="relative h-[320px] overflow-hidden">
-                  <img
-                    src={selected.img}
-                    alt={selected.title}
-                    className="w-full h-full object-cover"
-                  />
+                {/* Modal Scrollable Body */}
+                <div className="overflow-y-auto flex-1 custom-scrollbar">
+                  {/* Banner Image */}
+                  <div className="relative h-60 md:h-72 w-full bg-slate-900 border-b border-white/10">
+                    <img
+                      src={selected.img}
+                      alt={selected.title}
+                      className="w-full h-full object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10] via-black/30 to-transparent" />
+                  </div>
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d12] via-black/40 to-transparent" />
+                  {/* Body Content */}
+                  <div className="p-6 md:p-8">
+                    {/* Title & Badges */}
+                    <div className="mb-6">
+                      <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4 leading-tight">
+                        {selected.title}
+                      </h2>
 
-                  <div className="absolute bottom-8 left-8">
-                    <h2 className="text-4xl font-black text-white mb-3">
-                      {selected.title}
-                    </h2>
+                      <div className="flex flex-wrap gap-2">
+                        {selected.tech.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 text-violet-300 border border-violet-500/20"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
-                    <div className="flex flex-wrap gap-2">
-                      {selected.tech.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/10 border border-white/10 text-gray-200 backdrop-blur-md"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                    {/* Description */}
+                    <div className="mb-8">
+                      <h4 className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-2">
+                        Overview
+                      </h4>
+                      <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                        {selected.desc}
+                      </p>
+                    </div>
+
+                    {/* Features Grid */}
+                    <div className="mb-6">
+                      <h4 className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-3">
+                        Key Features & Architecture
+                      </h4>
+
+                      <div className="grid md:grid-cols-2 gap-3">
+                        {selected.features.map((feature, index) => (
+                          <div
+                            key={index}
+                            className="flex items-start gap-3 p-3.5 rounded-xl border border-white/10 bg-white/[0.02]"
+                          >
+                            <FaCheckCircle className="text-violet-400 mt-0.5 flex-shrink-0" size={15} />
+                            <p className="text-xs text-gray-300 leading-normal">
+                              {feature}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="p-8 overflow-y-auto max-h-[calc(90vh-320px)]">
-                  <p className="text-gray-400 leading-relaxed text-[15px] mb-8">
-                    {selected.desc}
-                  </p>
-
-                  <div className="mb-10">
-                    <h4 className="text-white text-lg font-semibold mb-5">
-                      Key Features
-                    </h4>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      {selected.features.map((feature, index) => (
-                        <div
-                          key={index}
-                          className="flex items-start gap-3 p-4 rounded-2xl border border-white/10 bg-white/[0.03]"
-                        >
-                          <div className="mt-1 w-2 h-2 rounded-full bg-violet-400" />
-                          <p className="text-sm text-gray-300 leading-relaxed">
-                            {feature}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-4">
-                    {selected.live && (
-                      <a
-                        href={selected.live}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-semibold hover:scale-[1.02] transition"
-                      >
-                        <FaExternalLinkAlt size={18} />
-                        Live Demo
-                      </a>
-                    )}
-
+                {/* Sticky Action Footer */}
+                <div className="p-4 md:px-8 border-t border-white/10 bg-[#0d0e14] flex items-center gap-4 justify-end">
+                  {selected.live && (
                     <a
-                      href={selected.github}
+                      href={selected.live}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-white/10 bg-white/[0.03] text-white font-semibold hover:bg-white/[0.06] transition"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-sm transition"
                     >
-                      <FaGithub size={18} />
-                      View Code
+                      <FaExternalLinkAlt size={14} />
+                      Live Demo
                     </a>
-                  </div>
+                  )}
+
+                  <a
+                    href={selected.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm transition"
+                  >
+                    <FaGithub size={16} />
+                    View Code
+                  </a>
                 </div>
               </motion.div>
             </>
