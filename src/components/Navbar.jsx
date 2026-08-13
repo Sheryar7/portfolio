@@ -10,7 +10,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "projects", "skills", "contact"];
+      // 1. Added "experience" to sections array
+      const sections = ["about", "experience", "projects", "skills", "contact"];
       
       const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
 
@@ -69,11 +70,15 @@ const Navbar = () => {
           <span onClick={() => handleScrollTo("about")} className={linkClass("about")}>
             About <Underline section="about" />
           </span>
-          <span onClick={() => handleScrollTo("projects")} className={linkClass("projects")}>
-            Projects <Underline section="projects" />
+          {/* 2. Added Desktop Link */}
+          <span onClick={() => handleScrollTo("experience")} className={linkClass("experience")}>
+            Experience <Underline section="experience" />
           </span>
           <span onClick={() => handleScrollTo("skills")} className={linkClass("skills")}>
             Skills <Underline section="skills" />
+          </span>
+          <span onClick={() => handleScrollTo("projects")} className={linkClass("projects")}>
+            Projects <Underline section="projects" />
           </span>
           <span onClick={() => handleScrollTo("contact")} className={linkClass("contact")}>
             Contact <Underline section="contact" />
@@ -99,7 +104,8 @@ const Navbar = () => {
 
       {open && (
         <div className="md:hidden text-center py-6 space-y-6 flex flex-col items-center mobile-menu">
-          {["about", "projects", "skills", "contact"].map((item) => (
+          {/* 3. Added "experience" to Mobile Menu array */}
+          {["about", "experience", "projects", "skills", "contact"].map((item) => (
             <p key={item} onClick={() => handleScrollTo(item)} className={`text-lg capitalize cursor-pointer nav-link ${active === item ? "nav-link-active font-bold" : ""}`}>
               {item}
             </p>

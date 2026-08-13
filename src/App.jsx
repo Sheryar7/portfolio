@@ -5,6 +5,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
+import Experience from "./components/Experience";
 import { ToastContainer } from 'react-toastify'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
+      <Experience />
       <Skills />
       <Projects />
       <Contact />
