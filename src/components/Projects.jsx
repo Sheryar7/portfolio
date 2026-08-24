@@ -128,41 +128,41 @@ const Projects = () => {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section id="projects" className="relative py-28 px-6 overflow-hidden">
+    <section id="projects" className="relative py-12 sm:py-16 md:py-28 overflow-hidden w-full">
       {/* Background Glow Effects */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-32 left-10 w-72 h-72 bg-violet-500/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-cyan-500/10 blur-[120px] rounded-full" />
+        <div className="absolute top-32 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-violet-500/10 blur-[90px] sm:blur-[120px] rounded-full" />
+        <div className="absolute bottom-20 right-10 w-48 sm:w-72 h-48 sm:h-72 bg-cyan-500/10 blur-[90px] sm:blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-7xl mx-auto">
+      {/* FULL WIDTH CONTAINER MATCHING OTHER SECTIONS */}
+      <div className="w-full px-4 sm:px-6 md:px-8">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-500/10 bg-gray-500/5 backdrop-blur-md text-sm text-muted mb-6"
+            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-gray-500/10 bg-gray-500/5 backdrop-blur-md text-xs sm:text-sm text-muted mb-4 sm:mb-6"
           >
-            <FaStar size={16} className="text-violet-500" />
+            <FaStar size={14} className="text-violet-500" />
             Resume Projects
           </motion.div>
 
-          {/* Section Heading adjusted to match Skills style */}
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3 sm:mb-6">
             <span className="gradient-text">
               <HighlightText>Highlighted Projects</HighlightText>
             </span>
           </h2>
 
-          <p className="max-w-2xl mx-auto text-muted text-lg leading-relaxed">
+          <p className="max-w-2xl mx-auto text-muted text-xs sm:text-sm md:text-lg leading-relaxed">
             Real projects showcasing full-stack architecture, secure authentication, backend services, and modern SaaS UI.
           </p>
         </div>
 
         {/* Project Grid */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 w-full">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -178,7 +178,7 @@ const Projects = () => {
               className="group cursor-pointer rounded-2xl overflow-hidden surface-card shadow-xl flex flex-col hover:border-violet-500/40 transition duration-300"
             >
               {/* Card Image */}
-              <div className="relative h-48 overflow-hidden bg-slate-900">
+              <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-900">
                 <img
                   src={project.img}
                   alt={project.title}
@@ -188,35 +188,34 @@ const Projects = () => {
               </div>
 
               {/* Card Content */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                 <div>
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {project.tech.slice(0, 3).map((tech, i) => (
                       <span
                         key={i}
-                        className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-violet-500/10 text-violet-500 border border-violet-500/10"
+                        className="px-2 sm:px-2.5 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium bg-violet-500/10 text-violet-500 border border-violet-500/10"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.tech.length > 3 && (
-                      <span className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-gray-500/10 text-muted">
+                      <span className="px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium bg-gray-500/10 text-muted">
                         +{project.tech.length - 3}
                       </span>
                     )}
                   </div>
 
-                  {/* Card Header Title updated to react to theme */}
-                  <h3 className="text-xl font-bold mb-2 line-clamp-1 group-hover:text-violet-500 transition">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 line-clamp-1 group-hover:text-violet-500 transition">
                     {project.title}
                   </h3>
 
-                  <p className="text-muted text-sm line-clamp-2 leading-relaxed">
+                  <p className="text-muted text-xs sm:text-sm line-clamp-2 leading-relaxed">
                     {project.desc}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-gray-500/10 flex items-center justify-between">
+                <div className="mt-4 sm:mt-5 pt-3.5 sm:pt-4 border-t border-gray-500/10 flex items-center justify-between">
                   <span className="text-xs font-semibold text-violet-500 flex items-center gap-1 group-hover:translate-x-1 transition">
                     View Details →
                   </span>
@@ -241,24 +240,24 @@ const Projects = () => {
 
               {/* Modal Container */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: "-45%", x: "-50%" }}
-                animate={{ opacity: 1, scale: 1, y: "-50%", x: "-50%" }}
-                exit={{ opacity: 0, scale: 0.95, y: "-45%", x: "-50%" }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ type: "spring", duration: 0.4 }}
-                className="fixed top-1/2 left-1/2 w-[92%] max-w-3xl max-h-[85vh] z-50 rounded-2xl overflow-hidden border border-gray-500/15 surface-card shadow-2xl flex flex-col"
+                className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] sm:w-[90%] max-w-3xl max-h-[85vh] sm:max-h-[80vh] z-50 rounded-2xl overflow-hidden border border-gray-500/15 surface-card shadow-2xl flex flex-col"
               >
                 {/* Close Button */}
                 <button
                   onClick={() => setSelected(null)}
-                  className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/60 border border-white/20 text-gray-300 hover:text-white hover:bg-black/90 transition"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 z-50 p-2 rounded-full bg-black/60 border border-white/20 text-gray-300 hover:text-white hover:bg-black/90 transition"
                 >
-                  <FaTimes size={16} />
+                  <FaTimes size={14} className="sm:text-base" />
                 </button>
 
                 {/* Modal Scrollable Body */}
                 <div className="overflow-y-auto flex-1 custom-scrollbar">
                   {/* Banner Image */}
-                  <div className="relative h-60 md:h-72 w-full bg-slate-900 border-b border-gray-500/10">
+                  <div className="relative h-44 sm:h-60 md:h-72 w-full bg-slate-900 border-b border-gray-500/10">
                     <img
                       src={selected.img}
                       alt={selected.title}
@@ -268,18 +267,18 @@ const Projects = () => {
                   </div>
 
                   {/* Body Content */}
-                  <div className="p-6 md:p-8">
+                  <div className="p-5 sm:p-6 md:p-8">
                     {/* Title & Badges */}
-                    <div className="mb-6">
-                      <h2 className="text-2xl md:text-3xl font-extrabold mb-4 leading-tight">
+                    <div className="mb-5 sm:mb-6">
+                      <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-3 sm:mb-4 leading-tight pr-6">
                         {selected.title}
                       </h2>
 
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {selected.tech.map((tech, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 text-violet-500 border border-violet-500/20"
+                            className="px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-violet-500/10 text-violet-500 border border-violet-500/20"
                           >
                             {tech}
                           </span>
@@ -288,28 +287,28 @@ const Projects = () => {
                     </div>
 
                     {/* Description */}
-                    <div className="mb-8">
-                      <h4 className="text-xs uppercase tracking-wider text-muted font-bold mb-2">
+                    <div className="mb-6 sm:mb-8">
+                      <h4 className="text-[11px] sm:text-xs uppercase tracking-wider text-muted font-bold mb-2">
                         Overview
                       </h4>
-                      <p className="text-muted leading-relaxed text-sm md:text-base">
+                      <p className="text-muted leading-relaxed text-xs sm:text-sm md:text-base">
                         {selected.desc}
                       </p>
                     </div>
 
                     {/* Features Grid */}
                     <div className="mb-6">
-                      <h4 className="text-xs uppercase tracking-wider text-muted font-bold mb-3">
+                      <h4 className="text-[11px] sm:text-xs uppercase tracking-wider text-muted font-bold mb-3">
                         Key Features & Architecture
                       </h4>
 
-                      <div className="grid md:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3">
                         {selected.features.map((feature, index) => (
                           <div
                             key={index}
-                            className="flex items-start gap-3 p-3.5 rounded-xl border border-gray-500/10 bg-gray-500/5"
+                            className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-3.5 rounded-xl border border-gray-500/10 bg-gray-500/5"
                           >
-                            <FaCheckCircle className="text-violet-500 mt-0.5 flex-shrink-0" size={15} />
+                            <FaCheckCircle className="text-violet-500 mt-0.5 flex-shrink-0 text-xs sm:text-sm" />
                             <p className="text-xs text-muted leading-normal">
                               {feature}
                             </p>
@@ -321,15 +320,15 @@ const Projects = () => {
                 </div>
 
                 {/* Sticky Action Footer */}
-                <div className="p-4 md:px-8 border-t border-gray-500/10 surface-card flex items-center gap-4 justify-end">
+                <div className="p-3.5 sm:p-4 md:px-8 border-t border-gray-500/10 surface-card flex items-center gap-2 sm:gap-4 justify-end">
                   {selected.live && (
                     <a
                       href={selected.live}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-sm transition"
+                      className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-xs sm:text-sm transition flex-1 sm:flex-initial"
                     >
-                      <FaExternalLinkAlt size={14} />
+                      <FaExternalLinkAlt size={12} className="sm:text-sm" />
                       Live Demo
                     </a>
                   )}
@@ -338,9 +337,9 @@ const Projects = () => {
                     href={selected.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-500/15 bg-gray-500/5 hover:bg-gray-500/10 font-semibold text-sm transition"
+                    className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl border border-gray-500/15 bg-gray-500/5 hover:bg-gray-500/10 font-semibold text-xs sm:text-sm transition flex-1 sm:flex-initial"
                   >
-                    <FaGithub size={16} />
+                    <FaGithub size={14} className="sm:text-base" />
                     View Code
                   </a>
                 </div>

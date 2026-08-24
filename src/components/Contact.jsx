@@ -136,9 +136,6 @@ const Contact = () => {
     }
 
     try {
-      // IMPORTANT:
-      // THESE MUST MATCH YOUR EMAIL TEMPLATE VARIABLES
-
       await emailjs.send(
         SERVICE_ID,
         TEMPLATE_ID,
@@ -177,46 +174,47 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className={`py-28 ${sectionBg}`}>
-      <div className="container-custom">
+    <section id="contact" className={`py-12 sm:py-16 md:py-28 overflow-hidden w-full ${sectionBg}`}>
+      {/* FULL WIDTH CONTAINER MATCHING OTHER SECTIONS */}
+      <div className="w-full px-4 sm:px-6 md:px-8">
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-8 sm:mb-10 md:mb-14"
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-violet-400 mb-4">
+          <p className="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] text-violet-400 mb-2 sm:mb-4">
             Contact
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
             <HighlightText>Send a Message</HighlightText>
           </h2>
 
-          <p className={`max-w-2xl mx-auto mt-5 leading-relaxed ${mutedText}`}>
+          <p className={`max-w-2xl mx-auto mt-3 sm:mt-5 text-xs sm:text-sm md:text-base leading-relaxed ${mutedText}`}>
             Feel free to reach out for collaborations, internship
             opportunities, freelance work, or technical discussions.
           </p>
         </motion.div>
 
         {/* GRID */}
-        <div className="grid lg:grid-cols-[1.7fr_1fr] gap-10">
+        <div className="grid lg:grid-cols-[1.7fr_1fr] gap-6 sm:gap-8 lg:gap-10 w-full">
           {/* FORM */}
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className={`rounded-[32px] border p-8 shadow-2xl shadow-black/10 ${cardBg}`}
+            className={`rounded-2xl sm:rounded-3xl md:rounded-[32px] border p-5 sm:p-7 md:p-8 shadow-2xl shadow-black/10 ${cardBg}`}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {/* ROW */}
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {/* NAME */}
                 <div>
-                  <label className="text-sm text-slate-400">
+                  <label className="text-xs sm:text-sm text-slate-400">
                     Full Name
                   </label>
 
@@ -226,13 +224,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your full name"
-                    className={`mt-3 w-full rounded-2xl border px-5 py-4 outline-none transition focus:ring-2 focus:ring-violet-500 ${inputBg}`}
+                    className={`mt-1.5 sm:mt-3 w-full rounded-xl sm:rounded-2xl border px-4 sm:px-5 py-3 sm:py-4 text-xs sm:text-sm outline-none transition focus:ring-2 focus:ring-violet-500 ${inputBg}`}
                   />
                 </div>
 
                 {/* EMAIL */}
                 <div>
-                  <label className="text-sm text-slate-400">
+                  <label className="text-xs sm:text-sm text-slate-400">
                     Email Address
                   </label>
 
@@ -242,14 +240,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="you@example.com"
-                    className={`mt-3 w-full rounded-2xl border px-5 py-4 outline-none transition focus:ring-2 focus:ring-violet-500 ${inputBg}`}
+                    className={`mt-1.5 sm:mt-3 w-full rounded-xl sm:rounded-2xl border px-4 sm:px-5 py-3 sm:py-4 text-xs sm:text-sm outline-none transition focus:ring-2 focus:ring-violet-500 ${inputBg}`}
                   />
                 </div>
               </div>
 
               {/* SUBJECT */}
               <div>
-                <label className="text-sm text-slate-400">
+                <label className="text-xs sm:text-sm text-slate-400">
                   Subject
                 </label>
 
@@ -259,36 +257,36 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Project inquiry"
-                  className={`mt-3 w-full rounded-2xl border px-5 py-4 outline-none transition focus:ring-2 focus:ring-violet-500 ${inputBg}`}
+                  className={`mt-1.5 sm:mt-3 w-full rounded-xl sm:rounded-2xl border px-4 sm:px-5 py-3 sm:py-4 text-xs sm:text-sm outline-none transition focus:ring-2 focus:ring-violet-500 ${inputBg}`}
                 />
               </div>
 
               {/* MESSAGE */}
               <div>
-                <label className="text-sm text-slate-400">
+                <label className="text-xs sm:text-sm text-slate-400">
                   Message
                 </label>
 
                 <textarea
-                  rows={7}
+                  rows={5}
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Write your message..."
-                  className={`mt-3 w-full rounded-2xl border px-5 py-4 outline-none resize-none transition focus:ring-2 focus:ring-violet-500 ${inputBg}`}
+                  className={`mt-1.5 sm:mt-3 w-full rounded-xl sm:rounded-2xl border px-4 sm:px-5 py-3 sm:py-4 text-xs sm:text-sm outline-none resize-none transition focus:ring-2 focus:ring-violet-500 ${inputBg}`}
                 />
               </div>
 
               {/* ERROR */}
               {status.error && (
-                <div className="rounded-2xl border border-red-500/20 bg-red-500/10 px-5 py-4 text-sm text-red-400">
+                <div className="rounded-xl sm:rounded-2xl border border-red-500/20 bg-red-500/10 px-4 sm:px-5 py-3 sm:py-4 text-xs sm:text-sm text-red-400">
                   {status.error}
                 </div>
               )}
 
               {/* SUCCESS */}
               {status.success && (
-                <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/10 px-5 py-4 text-sm text-emerald-400">
+                <div className="rounded-xl sm:rounded-2xl border border-emerald-500/20 bg-emerald-500/10 px-4 sm:px-5 py-3 sm:py-4 text-xs sm:text-sm text-emerald-400">
                   {status.success}
                 </div>
               )}
@@ -297,7 +295,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={status.loading}
-                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-violet-600 px-8 py-4 font-medium text-white transition hover:bg-violet-500 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-xl sm:rounded-2xl bg-violet-600 px-6 sm:px-8 py-3.5 sm:py-4 font-medium text-xs sm:text-sm text-white transition hover:bg-violet-500 disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {status.loading ? (
                   <>
@@ -317,17 +315,17 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
           >
             {/* CONTACT CARD */}
             <div
-              className={`rounded-[32px] border p-8 shadow-2xl shadow-black/10 ${cardBg}`}
+              className={`rounded-2xl sm:rounded-3xl md:rounded-[32px] border p-5 sm:p-7 md:p-8 shadow-2xl shadow-black/10 ${cardBg}`}
             >
-              <p className="text-sm uppercase tracking-[0.3em] text-violet-400 mb-6">
+              <p className="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] text-violet-400 mb-4 sm:mb-6">
                 Contact Info
               </p>
 
-              <div className="space-y-5">
+              <div className="space-y-3 sm:space-y-4 md:space-y-5">
                 {CONTACT_LINKS.map((item) => (
                   <a
                     key={item.label}
@@ -338,18 +336,18 @@ const Contact = () => {
                         : "_blank"
                     }
                     rel="noreferrer"
-                    className="flex items-center gap-4 rounded-2xl border border-slate-200/10 p-5 transition hover:border-violet-500 hover:-translate-y-1"
+                    className="flex items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-slate-200/10 p-3.5 sm:p-4 md:p-5 transition hover:border-violet-500 hover:-translate-y-0.5 sm:hover:-translate-y-1"
                   >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-500/10 text-violet-400 text-xl">
+                    <div className="flex h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 items-center justify-center rounded-xl sm:rounded-2xl bg-violet-500/10 text-violet-400 text-lg sm:text-xl">
                       {item.icon}
                     </div>
 
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-slate-500">
                         {item.label}
                       </p>
 
-                      <p className="mt-1 text-sm">
+                      <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm font-medium truncate">
                         {item.value}
                       </p>
                     </div>
@@ -360,16 +358,14 @@ const Contact = () => {
 
             {/* AVAILABILITY */}
             <div
-              className={`rounded-[32px] border p-8 shadow-2xl shadow-black/10 ${cardBg}`}
+              className={`rounded-2xl sm:rounded-3xl md:rounded-[32px] border p-5 sm:p-7 md:p-8 shadow-2xl shadow-black/10 ${cardBg}`}
             >
-              <p className="text-sm uppercase tracking-[0.3em] text-violet-400 mb-4">
+              <p className="text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] text-violet-400 mb-2.5 sm:mb-4">
                 Availability
               </p>
 
-              <p className={`leading-relaxed ${mutedText}`}>
-                Currently open to internships,
-                freelance projects, and full-stack
-                development opportunities.
+              <p className={`text-xs sm:text-sm leading-relaxed ${mutedText}`}>
+                Currently open to internships, freelance projects, and full-stack development opportunities.
               </p>
             </div>
           </motion.aside>

@@ -10,7 +10,6 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // 1. Added "experience" to sections array
       const sections = ["about", "experience", "projects", "skills", "contact"];
       
       const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
@@ -61,16 +60,16 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full z-50 shadow-sm transition-all duration-300 nav-surface">
-      <div className="container-custom flex justify-between items-center py-4">
-        <h1 className="font-bold text-xl cursor-pointer" onClick={() => handleScrollTo("about")}>
+      <div className="container-custom flex justify-between items-center py-4 px-4 sm:px-6">
+        <h1 className="font-bold text-xl cursor-pointer shrink-0" onClick={() => handleScrollTo("about")}>
           <HighlightText>Sheryar Khan</HighlightText>
         </h1>
 
+        {/* Desktop Navigation - Unchanged */}
         <div className="hidden md:flex gap-8 items-center">
           <span onClick={() => handleScrollTo("about")} className={linkClass("about")}>
             About <Underline section="about" />
           </span>
-          {/* 2. Added Desktop Link */}
           <span onClick={() => handleScrollTo("experience")} className={linkClass("experience")}>
             Experience <Underline section="experience" />
           </span>
@@ -87,31 +86,52 @@ const Navbar = () => {
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="text-xl ml-4 transition-transform hover:rotate-12 nav-toggle"
+            aria-label="Toggle Theme"
           >
             {theme === "dark" ? <FaSun /> : <FaMoon />}
           </button>
         </div>
 
-        <div className="md:hidden flex items-center gap-4">
-          <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="nav-toggle">
-            {theme === "dark" ? <FaSun /> : <FaMoon />}
+        {/* Mobile Controls */}
+        <div className="md:hidden flex items-center gap-3">
+          <button 
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 
+            className="p-2 text-lg rounded-lg transition-colors nav-toggle"
+            aria-label="Toggle Theme"
+          >
+            {theme === "dark" ? <FaSun className="text-yellow-400" /> : <FaMoon />}
           </button>
-          <div onClick={() => setOpen(!open)} className="nav-toggle cursor-pointer">
-            {open ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </div>
+
+          <button 
+            onClick={() => setOpen(!open)} 
+            className="p-2 text-xl rounded-lg focus:outline-none nav-toggle"
+            aria-label="Toggle Menu"
+          >
+            {open ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
       </div>
 
-      {open && (
-        <div className="md:hidden text-center py-6 space-y-6 flex flex-col items-center mobile-menu">
-          {/* 3. Added "experience" to Mobile Menu array */}
-          {["about", "experience", "projects", "skills", "contact"].map((item) => (
-            <p key={item} onClick={() => handleScrollTo(item)} className={`text-lg capitalize cursor-pointer nav-link ${active === item ? "nav-link-active font-bold" : ""}`}>
+      {/* Mobile Drawer Menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out border-b border-slate-800/50 backdrop-blur-lg mobile-menu ${
+          open ? "max-h-96 opacity-100 py-6" : "max-h-0 opacity-0 py-0"
+        }`}
+      >
+        <div className="flex flex-col items-center space-y-5 px-6">
+          {["about", "experience", "skills", "projects", "contact"].map((item) => (
+            <button
+              key={item}
+              onClick={() => handleScrollTo(item)}
+              className={`text-base font-medium capitalize transition-colors w-full text-center py-1 nav-link ${
+                active === item ? "nav-link-active font-bold text-blue-500" : ""
+              }`}
+            >
               {item}
-            </p>
+            </button>
           ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 };
