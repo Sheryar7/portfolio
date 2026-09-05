@@ -11,6 +11,21 @@ import {
 
 const projects = [
   {
+    id: "url-shortener-devops",
+    title: "UrlCraft — High-Performance URL Shortener",
+    desc: "Production-grade microservice architecture featuring sub-millisecond redirects using Redis caching, PostgreSQL persistence, and Docker Compose orchestration.",
+    img: "/url-shortener.png",
+    github: "https://github.com/Sheryar7/url-shortener-devops",
+    features: [
+      "Cache-Aside Redirection Architecture: Implemented Redis caching layer in front of PostgreSQL to serve cached URLs with sub-millisecond latency",
+      "Asynchronous Analytics Pipeline: Non-blocking click tracking and usage metrics recorded to PostgreSQL without delaying user HTTP redirects",
+      "Modular NestJS Microservice API: Decoupled controllers, custom DTO validation, and TypeORM entity mapping optimized for high throughput",
+      "Multi-Container Docker Orchestration: Full stack isolated via Docker Compose V2 across dedicated internal bridge networks with global network bindings (0.0.0.0)",
+      "Interactive Next.js Client: Reactive dynamic link generation dashboard built with Tailwind CSS, real-time clipboard hooks, and automated HTTP error boundary handling",
+    ],
+    tech: ["Next.js 15", "NestJS", "TypeScript", "Redis", "PostgreSQL", "Docker", "TypeORM"],
+  },
+  {
     id: "skillgraph-rag",
     title: "SkillGraph — Candidate RAG & Knowledge Search Engine",
     desc: "AI-powered Retrieval-Augmented Generation (RAG) platform that parses candidate PDFs, converts context into vector embeddings, and synthesizes answers using Gemini LLM.",

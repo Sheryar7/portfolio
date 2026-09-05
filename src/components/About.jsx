@@ -51,16 +51,16 @@ const About = () => {
               </h3>
 
               <p className="text-gray-500 text-sm sm:text-base leading-relaxed mb-5">
-                Full-Stack Software Engineer with hands-on expertise building production-ready web applications, distributed microservices, and AI-driven systems. Specializes in modern JavaScript/TypeScript ecosystems across Next.js 15, React, NestJS, Supabase (pgvector), and relational/non-relational databases (PostgreSQL & MongoDB).
+                Full-Stack Software Engineer with hands-on expertise building production-ready web applications, microservices, containerized deployments, and AI-driven systems. Specializes in modern JavaScript/TypeScript ecosystems across Next.js 15, React, NestJS, Docker, Redis, Supabase (pgvector), and relational databases (PostgreSQL).
               </p>
 
               <div className="space-y-4 mb-5">
                 <div>
                   <h4 className="text-blue-400 font-medium text-xs sm:text-sm uppercase tracking-wider mb-1">
-                    Key Capabilities
+                    Key Capabilities & Systems Engineering
                   </h4>
                   <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
-                    Demonstrated track record transition from production frontend development (building modular, accessible component systems in Next.js/Tailwind) to designing end-to-end full-stack architectures. Skilled in architecting secure authentication workflows (JWT, OAuth, RBAC), handling Zustand/Redux client state, and implementing robust asynchronous background pipelines.
+                    Demonstrated track record transitioning from modular frontend systems to end-to-end full-stack and microservice architectures. Skilled in containerizing multi-tier environments with Docker Compose, implementing sub-millisecond cache-aside strategies with Redis, handling asynchronous analytics pipelines, and securing RESTful APIs with RBAC, DTO validation, and TypeORM.
                   </p>
                 </div>
 
@@ -69,7 +69,7 @@ const About = () => {
                     Architecture & AI Engineering Focus
                   </h4>
                   <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
-                    Experienced in building Retrieval-Augmented Generation (RAG) pipelines leveraging vector embeddings (Gemini API) and Supabase <code className="text-[11px] sm:text-xs px-1 py-0.5 rounded bg-blue-500/10">pgvector</code> for similarity searching. Focuses on system reliability, cascading data lifecycles, and clean separation of concerns using pattern-driven architecture (MVC, DTO validation, and modular encapsulation).
+                    Experienced in building Retrieval-Augmented Generation (RAG) pipelines leveraging vector embeddings (Gemini API) and Supabase <code className="text-[11px] sm:text-xs px-1 py-0.5 rounded bg-blue-500/10">pgvector</code> for similarity searching. Focuses on system reliability, high throughput caching, isolated container networking, and clean separation of concerns using modular pattern-driven architectures.
                   </p>
                 </div>
               </div>
@@ -80,7 +80,7 @@ const About = () => {
                 Professional Objective
               </h4>
               <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
-                Seeking a Full-Stack, Web Developer, or MERN Stack role in a high-growth engineering team to deliver scalable, high-performance web products and drive developer productivity using modern AI tools.
+                Seeking a Full-Stack, Web Developer, or Backend Software Engineering role in a high-growth team to deliver scalable microservices, containerized infrastructure, and performant web products.
               </p>
             </div>
           </motion.div>

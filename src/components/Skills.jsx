@@ -6,13 +6,16 @@ const Skills = () => {
   const { theme } = useTheme();
 
   const skills = [
+    { name: "Docker & Container Orchestration", level: 75, type: "DevOps" },
+    { name: "Redis (Cache-Aside & Performance)", level: 72, type: "Backend / Caching" },
+    { name: "NestJS & Microservices", level: 72, type: "Backend" },
     { name: "RAG Architecture & Embeddings", level: 70, type: "AI / LLM" },
-    { name: "PostgreSQL / Supabase (pgvector)", level: 70, type: "Database" },
-    { name: "React.js / Next.js", level: 80, type: "Frontend" },
+    { name: "PostgreSQL / Supabase (pgvector)", level: 72, type: "Database" },
+    { name: "React.js / Next.js 15", level: 80, type: "Frontend" },
     { name: "TypeScript", level: 75, type: "Frontend" },
     { name: "Tailwind CSS", level: 80, type: "Frontend" },
     { name: "Node.js / Express", level: 73, type: "Backend" },
-    { name: "NestJS", level: 70, type: "Backend" },
+    { name: "TypeORM & SQL Persistence", level: 70, type: "Database" },
     { name: "MongoDB / Mongoose", level: 68, type: "Database" },
     { name: "JWT Auth & RBAC", level: 70, type: "Security" },
     { name: "HTML5 / CSS3", level: 85, type: "Frontend" },

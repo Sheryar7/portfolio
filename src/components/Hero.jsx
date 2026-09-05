@@ -12,7 +12,7 @@ const Hero = () => {
 
       {/* MATCHING FULL WIDTH CONTAINER */}
       <div className="w-full px-4 sm:px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">
-        
+
         {/* Left Column */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -48,7 +48,7 @@ const Hero = () => {
             </p>
 
             <p className="text-muted mt-6 md:mt-8 text-base md:text-lg leading-relaxed">
-              Self-taught Full-Stack Developer building scalable web applications, AI-powered RAG systems, and production SaaS architectures using Next.js 15, React, NestJS, Supabase (pgvector), and MongoDB/PostgreSQL. I specialize in vector similarity search, role-based access control (RBAC), secure authentication, and shipping deploy-ready applications.
+              Self-taught Full-Stack Developer building scalable web applications, microservices, and AI-powered RAG systems using Next.js 15, NestJS, TypeScript, Docker, and Redis. I specialize in multi-container orchestration, high-performance caching pipelines, vector similarity search (pgvector), and shipping deploy-ready SaaS architectures.
             </p>
 
             <div className="mt-6 md:mt-8 grid gap-2.5 sm:gap-3 text-sm text-gray-400">
@@ -98,35 +98,34 @@ const Hero = () => {
             </h3>
 
             <div className="mt-6 md:mt-8 space-y-4 sm:space-y-5">
-              <div className="flex gap-3 sm:gap-4">
-                <div className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0" />
-                <p className="text-xs sm:text-sm leading-relaxed surface-copy">
-                  <strong>Frontend Developer Intern (2 Months):</strong> Built modular, responsive UI components using Next.js, TypeScript, and Tailwind CSS.
-                </p>
-              </div>
+  <div className="flex gap-3 sm:gap-4">
+    <div className="w-2 h-2 mt-2 rounded-full bg-blue-500 shrink-0" />
+    <p className="text-xs sm:text-sm leading-relaxed surface-copy">
+      <strong>Frontend Developer Intern (2 Months):</strong> Built modular, responsive UI components using Next.js, TypeScript, and Tailwind CSS.
+    </p>
+  </div>
 
-              <div className="flex gap-3 sm:gap-4">
-                <div className="w-2 h-2 mt-2 rounded-full bg-cyan-400 shrink-0" />
-                <p className="text-xs sm:text-sm leading-relaxed surface-copy">
-                  Engineered AI-powered RAG pipelines with NestJS, Gemini API embeddings, and Supabase <code className="text-[11px] sm:text-xs px-1 py-0.5 rounded bg-blue-500/10">pgvector</code> search.
-                </p>
-              </div>
+  <div className="flex gap-3 sm:gap-4">
+    <div className="w-2 h-2 mt-2 rounded-full bg-cyan-400 shrink-0" />
+    <p className="text-xs sm:text-sm leading-relaxed surface-copy">
+      Engineered AI-powered RAG pipelines with NestJS, Gemini API embeddings, and Supabase <code className="text-[11px] sm:text-xs px-1 py-0.5 rounded bg-blue-500/10">pgvector</code> search.
+    </p>
+  </div>
 
-              <div className="flex gap-3 sm:gap-4">
-                <div className="w-2 h-2 mt-2 rounded-full bg-purple-500 shrink-0" />
-                <p className="text-xs sm:text-sm leading-relaxed surface-copy">
-                  Built & deployed modern SaaS apps featuring role-based dashboards, JWT/Zustand authentication, and dynamic Markdown UI parsing.
-                </p>
-              </div>
+  <div className="flex gap-3 sm:gap-4">
+    <div className="w-2 h-2 mt-2 rounded-full bg-purple-500 shrink-0" />
+    <p className="text-xs sm:text-sm leading-relaxed surface-copy">
+      Architected microservices featuring sub-millisecond <code className="text-[11px] sm:text-xs px-1 py-0.5 rounded bg-purple-500/10">Redis</code> caching, non-blocking asynchronous analytics, and TypeORM persistence.
+    </p>
+  </div>
 
-              <div className="flex gap-3 sm:gap-4">
-                <div className="w-2 h-2 mt-2 rounded-full bg-green-500 shrink-0" />
-                <p className="text-xs sm:text-sm leading-relaxed surface-copy">
-                  Experienced in end-to-end cloud deployments on Vercel, Supabase, and PostgreSQL database architectures.
-                </p>
-              </div>
-            </div>
-          </div>
+  <div className="flex gap-3 sm:gap-4">
+    <div className="w-2 h-2 mt-2 rounded-full bg-green-500 shrink-0" />
+    <p className="text-xs sm:text-sm leading-relaxed surface-copy">
+      Configured multi-container environments using <code className="text-[11px] sm:text-xs px-1 py-0.5 rounded bg-green-500/10">Docker Compose</code> across isolated networks, along with cloud deployments on Vercel and Supabase.
+    </p>
+  </div>
+</div>
 
           <div className="mt-8 md:mt-10 pt-4 md:pt-6 border-t border-white/10 text-xs sm:text-sm text-muted">
             <div className="flex flex-col sm:flex-row justify-between gap-2 sm:gap-4 flex-wrap">
@@ -134,6 +133,7 @@ const Hero = () => {
               <span>Available for Opportunities</span>
             </div>
           </div>
+        </div>
         </motion.div>
 
       </div>
